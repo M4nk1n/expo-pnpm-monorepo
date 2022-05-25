@@ -1,27 +1,31 @@
 {
-  "name": "react-native-monorepo",
-  "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "name": "expo-pnpm-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Expo Workspace with pnpm",
+  "packageManager": "pnpm@7.1.5",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
-  },
-  "dependencies": {
-    "expo": "~45.0.0",
-    "expo-status-bar": "~1.3.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-native": "0.68.2",
-    "react-native-web": "0.17.7"
+    "native": "cd apps/expo && pnpm start",
+    "web": "cd apps/next && pnpm dev",
+    "reset": "find . -type dir -name node_modules | xargs rm -rf && find . -type dir -name .expo | xargs rm -rf && rm -rf pnpm-lock.yaml"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@types/react": "~17.0.21",
-    "@types/react-native": "~0.66.13",
-    "typescript": "~4.3.5"
+    "@types/react": "^17.0.39",
+    "@types/react-native": "^0.67.7",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "eslint": "^8.15.0",
+    "eslint-plugin-react-app": "^6.2.2",
+    "eslint-plugin-react-native": "^4.0.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "typescript": "^4.6.4"
   },
-  "private": true
+  "workspaces": {
+    "nohoist": [
+      "**/@babel/core",
+      "**/@babel/core/**",
+      "**/@babel/runtime",
+      "**/@babel/runtime/**"
+    ]
+  }
 }

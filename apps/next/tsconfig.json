@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base",
+  "compilerOptions": {
+    "incremental": true,
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "public",
+    "pages"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
