@@ -3,35 +3,24 @@
   "version": "0.0.1",
   "private": true,
   "description": "Expo Workspace with pnpm",
-  "packageManager": "pnpm@7.1.5",
+  "packageManager": "pnpm@7.1.9",
+  "engines": {
+    "node": ">=16.9.0",
+    "pnpm": ">=6"
+  },
   "scripts": {
     "native": "cd apps/expo && pnpm start",
     "web": "cd apps/next && pnpm dev",
-    "reset": "find . -type dir -name node_modules | xargs rm -rf && find . -type dir -name .expo | xargs rm -rf && rm -rf pnpm-lock.yaml"
+    "cache:clear": "watchman watch-del-all && rm -rf $TMPDIR/metro-* $TMPDIR/haste-* && find . -type dir -name .expo | xargs rm -rf && find . -type dir -name .next | xargs rm -rf",
+    "reset": "find . -type dir -name node_modules | xargs rm -rf && rm -rf pnpm-lock.yaml"
   },
   "devDependencies": {
-    "@types/react": "^17.0.39",
-    "@types/react-native": "^0.67.7",
+    "@babel/core": "^7.18.2",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
     "eslint": "^8.15.0",
     "eslint-plugin-react-app": "^6.2.2",
     "eslint-plugin-react-native": "^4.0.0",
-    "eslint-plugin-react-hooks": "^4.5.0",
-    "typescript": "^4.6.4"
-  },
-  "pnpm": {
-    "overrides": {
-      "@babel/types@7.18.0": "7.17.12",
-      "@babel/types@^7.18.0": "7.17.12"
-    }
-  },
-  "workspaces": {
-    "nohoist": [
-      "**/@babel/core",
-      "**/@babel/core/**",
-      "**/@babel/runtime",
-      "**/@babel/runtime/**"
-    ]
+    "eslint-plugin-react-hooks": "^4.5.0"
   }
 }
