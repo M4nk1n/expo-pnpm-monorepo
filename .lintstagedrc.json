@@ -1,5 +1,8 @@
 {
-  "**/*.{js,ts,tsx}": ["eslint --fix"],
-  "**/*.json": ["prettier --write"],
-  "**/*.md": ["prettier --write"]
+  "{!(package)*.json, *.code-snippets, .!(browserslist)*rc}": ["prettier --write--parser json", "git add"],
+  "**/*.json": ["prettier --write", "git add"],
+  "**/*.{js,ts,tsx}": ["eslint --fix", "prettier --write", "git add"],
+  "*.vue": ["eslint --fix", "prettier --write", "stylelint --fix", "git add"],
+  "*.{scss,less,styl,html}": ["stylelint --fix", "prettier --write", "git add"],
+  "**/*.md": ["markdownlint-cli2 .md", "git add"]
 }
