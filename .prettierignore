@@ -1,0 +1,7 @@
+out
+dist
+build
+node_modules
+.next
+.expo
+.expo-shared
