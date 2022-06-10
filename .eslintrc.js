@@ -21,11 +21,7 @@ module.exports = {
     'import/no-commonjs': ['off'], // 禁止commonjs写法 如module.exports
     'complexity': ['off', 16], // 限制圈复杂度 阈值3 如if else if else语句最多嵌套三层 TODO: 需要放开
     'react/jsx-indent-props': 0, // 不验证jsx缩进
-    'no-unused-vars': [
-      // 不允许未使用的变量
-      'error',
-      { varsIgnorePattern: 'Taro' }, // Taro框架要求在使用class组件的时候必须在文件中声明Taro 但是不是所有文件都会显式使用到 所以忽略
-    ],
+    'no-unused-vars': ['error'],  // 不允许未使用的变量
     'arrow-spacing': [
       // 要求箭头函数的箭头之前或之后有空格
       'error',
@@ -38,11 +34,7 @@ module.exports = {
       1,
       { extensions: ['.js', '.jsx', '.tsx'] },
     ],
-    '@typescript-eslint/no-unused-vars': [
-      // 禁止未使用的变量
-      'error',
-      { varsIgnorePattern: 'Taro' }, // 忽略正则
-    ],
+    '@typescript-eslint/no-unused-vars': ['error'], // 禁止未使用的变量
     '@typescript-eslint/member-delimiter-style': [
       'error',
       {
@@ -71,6 +63,6 @@ module.exports = {
       jsx: true,
     },
     useJSXTextNode: true,
-    project: ['tsconfig.json', 'apps/**/tsconfig.json', 'packages/**/tsconfig.json'],
-  },
+    project: ['tsconfig.json', 'apps/**/tsconfig.json', 'packages/**/tsconfig.json', 'devices/**/tsconfig.json'],
+  }
 }
