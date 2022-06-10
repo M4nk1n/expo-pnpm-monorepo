@@ -9,12 +9,17 @@
     "pnpm": ">=6"
   },
   "scripts": {
+    "bootstrap": "pnpm install",
+    "prepare": "husky install",
     "native": "cd apps/expo && pnpm start",
     "web": "cd apps/next && pnpm dev",
-    "cache:clear": "watchman watch-del-all && rm -rf $TMPDIR/metro-* $TMPDIR/haste-* && find . -type dir -name .expo | xargs rm -rf && find . -type dir -name .next | xargs rm -rf",
-    "reset": "find . -type dir -name node_modules | xargs rm -rf && rm -rf pnpm-lock.yaml",
-    "postinstall": "pnpm dlx husky install",
-    "format": "pretty-quick --staged && lint-staged"
+    "clean:cache": "watchman watch-del-all && rm -rf $TMPDIR/metro-* $TMPDIR/haste-* && find . -type dir -name .expo | xargs rm -rf && find . -type dir -name .next | xargs rm -rf",
+    "clean:lib": "find . -type dir -name node_modules | xargs rm -rf && rm -rf pnpm-lock.yaml",
+    "format": "pretty-quick --staged && lint-staged",
+    "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
+    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "lint:lint-staged": "lint-staged"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",

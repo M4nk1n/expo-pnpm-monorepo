@@ -4,10 +4,6 @@
   "private": true,
   "main": "index.ts",
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "pnpm lint --fix",
-    "test": "jest --passWithNoTests",
-    "test:watch": "pnpm jest --watch",
     "typecheck": "tsc"
   },
   "dependencies": {
