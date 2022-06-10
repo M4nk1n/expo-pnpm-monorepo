@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "@expo/next-adapter/babel",
+    ["babel-preset-expo", { "jsxRuntime": "automatic" }]
+  ],
+  "plugins": [
+    // https://github.com/expo/expo/issues/14374
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    ["@babel/plugin-proposal-private-methods", { "loose": true }],
+    ["@babel/plugin-proposal-private-property-in-object", { "loose": true }],
+    // Note: If you load other babel plugins, the Reanimated plugin has to be listed last in the plugins array.
+    "react-native-reanimated/plugin"
+  ]
+}

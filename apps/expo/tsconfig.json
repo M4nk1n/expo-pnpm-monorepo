@@ -1,9 +1,8 @@
 {
   "extends": "expo/tsconfig.base",
+  "compileOnSave": false,
   "compilerOptions": {
-    "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
@@ -16,8 +15,11 @@
     "resolveJsonModule": true,
     "strict": true,
     // Solves https://github.com/DefinitelyTyped/DefinitelyTyped/issues/16825
-    // "skipLibCheck": true,
+    "skipLibCheck": true,
     "target": "esnext"
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist", ".expo"],
+  "references": [
+    { "path": "../../packages/app" }
+  ]
 }

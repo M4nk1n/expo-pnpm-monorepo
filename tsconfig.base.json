@@ -5,17 +5,19 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
+    "incremental": true,    // 开启TypeScript 的增量编译能力
     "isolatedModules": true,
     "jsx": "react",
     "module": "esnext",
     "moduleResolution": "node",
-    "noEmit": true,
+    // "noEmit": true,
+    // "noEmitOnError": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "strict": true,
     // Solves https://github.com/DefinitelyTyped/DefinitelyTyped/issues/16825
-    // "skipLibCheck": true,
+    "skipLibCheck": true,
     "target": "esnext"
   }
 }
