@@ -1,3 +1,3 @@
-import App from './App'
+import AppProviders from './AppProviders'
 
-export default App
+export default AppProviders
