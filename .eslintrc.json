@@ -1,5 +1,9 @@
 {
-  "extends": ["plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/eslint-recommended"],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "react-native"],
   "rules": {
@@ -20,7 +24,7 @@
     "import/no-commonjs": ["off"], // 禁止commonjs写法 如module.exports
     "complexity": ["off", 16], // 限制圈复杂度 阈值3 如if else if else语句最多嵌套三层 TODO: 需要放开
     "react/jsx-indent-props": 0, // 不验证jsx缩进
-    "no-unused-vars": ["error"],  // 不允许未使用的变量
+    "no-unused-vars": ["error"], // 不允许未使用的变量
     "arrow-spacing": [
       // 要求箭头函数的箭头之前或之后有空格
       "error",
@@ -33,6 +37,7 @@
       1,
       { "extensions": [".js", ".jsx", ".tsx"] }
     ],
+
     "@typescript-eslint/no-unused-vars": ["error"], // 禁止未使用的变量
     "@typescript-eslint/member-delimiter-style": [
       "error",
