@@ -1,0 +1,30 @@
+{
+  "name": "@packages/navigation",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "pnpm lint --fix",
+    "test": "jest --passWithNoTests",
+    "test:watch": "pnpm jest --watch",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@react-navigation/native": "^6.0.10",
+    "@react-navigation/native-stack": "^6.6.2",
+    "@react-navigation/stack": "^6.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.39",
+    "@types/react-native": "^0.67.7"
+  },
+  "peerDependencies": {
+    "@types/react": ">=17.0.0",
+    "@types/react-native": "*",
+    "typescript": "*",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0",
+    "react-native": "*"
+  }
+}
