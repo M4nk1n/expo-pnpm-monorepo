@@ -1,4 +1,7 @@
 {
   "extends": "./tsconfig.base",
+  "compilerOptions": {
+    "noEmit": true
+  },
   "exclude": ["node_modules"]
 }
