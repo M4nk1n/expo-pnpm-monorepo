@@ -33,3 +33,11 @@
 ### 编译&运行
 
 自行查看 packages 目录下各子项目
+
+---
+
+## Links
+
+[Expo fyi](https://github.com/expo/fyi): Little bits of information that you may
+find useful when interacting with Expo tools and service. Append the markdown
+filename to [Expo fyi](https://github.com/expo/fyi) to get a quick link to it.
