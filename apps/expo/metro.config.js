@@ -14,17 +14,16 @@ const config = getDefaultConfig(projectRoot)
 // 1. Watch all files within the monorepo
 config.watchFolders = [workspaceRoot]
 // 2. Let Metro know where to resolve packages, and in what order
-config.resolver.nodeModulesPaths = [
-  path.resolve(projectRoot, 'node_modules'),
-  // path.resolve(workspaceRoot, 'node_modules'),   // needed for npm workspaces
-]
+// config.resolver.nodeModulesPaths = [
+//   path.resolve(projectRoot, 'node_modules'),
+//   // path.resolve(workspaceRoot, 'node_modules'),   // needed for npm workspaces
+// ]
 // 3. getTransformOptions
 config.transformer.getTransformOptions = async () => ({
   transform: {
     experimentalImportSupport: true, // this is so `import React from "react"` is not needed.
-    inlineRequires: true
-  }
+    inlineRequires: true,
+  },
 })
-// config.transformer.env = { rootMode: "upward" }
 
 module.exports = config
