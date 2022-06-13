@@ -4,16 +4,10 @@
   "compilerOptions": {
     "composite": true, // 用于帮助 TypeScript 快速确定引用工程的输出文件位置
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "noEmit": true
   },
   "include": ["next-env.d.ts", "public", "pages"],
-  "exclude": ["node_modules", "dist", ".next", ".expo"],
-  "references": [
-    { "path": "../../packages/app" }
-  ]
+  "exclude": ["node_modules"],
+  "references": [{ "path": "../../packages/app" }]
 }
