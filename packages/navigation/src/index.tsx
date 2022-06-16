@@ -1,5 +1,4 @@
-import { NavigationContainer } from "@react-navigation/native"
-import Stack from "./stack"
-import combineProviders from "./combineProviders"
+export { NavigationContainer } from '@react-navigation/native'
 
-export { NavigationContainer, Stack, combineProviders }
+export * from './types'
+export * from './stack'

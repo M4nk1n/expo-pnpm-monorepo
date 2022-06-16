@@ -1,5 +1,3 @@
-import { createStackNavigator } from "@react-navigation/stack"
+import { createStackNavigator } from '@react-navigation/stack'
 
-const Stack = createStackNavigator()
-
-export default Stack
+export const Stack = createStackNavigator()
