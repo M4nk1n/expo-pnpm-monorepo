@@ -1,11 +1,24 @@
 import React from 'react'
-import { combineProviders } from '@packages/navigation'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { combineProviders, DimensionsProvider } from '@packages/shared'
+import { KeyboardAvoidingProvider, SuspenseProvider, ToastProvider } from '@packages/components'
 
 import NavigatorProvider from './navigation/NavigatorProvider'
 
 const AppProviders = ({ children }: { children?: React.ReactNode }) =>
-  combineProviders([
-    NavigatorProvider
-  ], children)
+  combineProviders(
+    [
+      // order matters here, be careful!
+      // if Provider A is using another Provider B, then A needs to appear below B.
+      // (即外层组件放上面)
+      KeyboardAvoidingProvider,
+      SafeAreaProvider,
+      DimensionsProvider, // uses: SafeAreaProvider
+      SuspenseProvider,
+      ToastProvider,
+      NavigatorProvider,
+    ],
+    children
+  )
 
 export default AppProviders

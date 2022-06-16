@@ -6,7 +6,7 @@
     "outDir": "dist",
     "rootDir": "src"
   },
-  "include": ["src/**/*", "types/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"],
   "compileOnSave": false
 }
