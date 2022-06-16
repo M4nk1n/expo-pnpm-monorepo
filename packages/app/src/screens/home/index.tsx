@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Observer, useLocalObservable } from 'mobx-react'
 import { Button, StyleSheet, Text, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { useNavigation } from '@react-navigation/native'
 
+import { useAppState } from '@packages/shared'
 import { useNavigationProp } from '@packages/navigation'
 import { useToast } from '@packages/components'
 
@@ -22,6 +23,16 @@ const Home = () => {
   const navigation = useNavigation<useNavigationProp>()
   const localStore = useLocalObservable(() => Store.app)
   const toast = useToast()
+
+  const onBackground = useCallback(() => {
+    // do something
+    console.log('onBackground')
+  }, [])
+  const onForeground = useCallback(() => {
+    // do something
+    console.log('onForeground')
+  }, [])
+  useAppState({ onForeground, onBackground })
 
   const click = (deviceType: string) => {
     navigation.navigate('Device', { deviceType })
