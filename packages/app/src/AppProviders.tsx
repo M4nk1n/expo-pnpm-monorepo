@@ -11,10 +11,10 @@ const AppProviders = ({ children }: { children?: React.ReactNode }) =>
       // order matters here, be careful!
       // if Provider A is using another Provider B, then A needs to appear below B.
       // (即外层组件放上面)
-      KeyboardAvoidingProvider,
       SafeAreaProvider,
       DimensionsProvider, // uses: SafeAreaProvider
       SuspenseProvider,
+      KeyboardAvoidingProvider,
       ToastProvider,
       NavigatorProvider,
     ],

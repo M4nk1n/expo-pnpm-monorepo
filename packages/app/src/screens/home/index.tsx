@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react'
-import { Observer, useLocalObservable } from 'mobx-react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Observer, useLocalObservable } from 'mobx-react-lite'
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { useNavigation } from '@react-navigation/native'
 
-import { useAppState } from '@packages/shared'
+import { useAppState, useDimensions, useKeyboard } from '@packages/shared'
 import { useNavigationProp } from '@packages/navigation'
 import { useToast } from '@packages/components'
 
@@ -23,16 +23,29 @@ const Home = () => {
   const navigation = useNavigation<useNavigationProp>()
   const localStore = useLocalObservable(() => Store.app)
   const toast = useToast()
+  const dims = useDimensions()
+
+  const [value, onChangeText] = React.useState('Multiline Placeholder')
 
   const onBackground = useCallback(() => {
     // do something
-    console.log('onBackground')
+    console.log('Home.onBackground')
   }, [])
   const onForeground = useCallback(() => {
     // do something
-    console.log('onForeground')
+    console.log('Home.onForeground')
   }, [])
   useAppState({ onForeground, onBackground })
+
+  const onKeyboardShow = useCallback(() => {
+    // do something
+    console.log('Home.onKeyboardShow')
+  }, [])
+  const onKeyboardHide = useCallback(() => {
+    // do something
+    console.log('Home.onKeyboardHide')
+  }, [])
+  const { dismiss: keyboardDismiss } = useKeyboard({ onKeyboardShow, onKeyboardHide })
 
   const click = (deviceType: string) => {
     navigation.navigate('Device', { deviceType })
@@ -40,6 +53,10 @@ const Home = () => {
 
   const testToast = (message: string) => {
     toast.show(message)
+  }
+
+  const dismissKeyboard = () => {
+    keyboardDismiss()
   }
 
   return (
@@ -58,7 +75,19 @@ const Home = () => {
       <Button onPress={() => localStore.decrement()} title='Click to decrement' />
 
       <Text>==========================================</Text>
+      <Button onPress={() => testToast(JSON.stringify(dims))} title='Click to print useDimensions()' />
       <Button onPress={() => testToast('success')} title='Click to test Toast' />
+
+      <Text>==========================================</Text>
+      <Button onPress={dismissKeyboard} title='Click to dismiss keyboard' />
+      <TextInput
+        editable
+        multiline
+        maxLength={40}
+        onChangeText={text => onChangeText(text)}
+        value={value}
+        style={{ height: 40, width: 300, margin: 12, padding: 10, borderWidth: 1 }}
+      />
     </View>
   )
 }
