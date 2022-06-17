@@ -1,11 +1,7 @@
 {
   "extends": ["@commitlint/config-conventional"],
   "rules": {
-    "type-enum": [
-      2,
-      "always",
-      ["feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert"]
-    ]
+    "type-enum": [2, "always", ["feat", "fix", "docs", "style", "refactor", "perf", "test", "ci", "chore", "revert"]]
   },
   "description": {
     "description": "这部分用作记录，无实际用途",
@@ -15,12 +11,11 @@
       "fix": "A bug fix",
       "docs": "Documentation only changes",
       "style": "[代码格式化] Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)",
-      "refactor": "[代码重构（不改变外部行为）] A code change that neither fixes a bug nor adds a feature",
-      "perf": "[（代码或性能）优化] A code change that improves performance",
+      "refactor": "[代码重构(不改变外部行为)] A code change that neither fixes a bug nor adds a feature",
+      "perf": "[(代码或性能)优化] A code change that improves performance",
       "test": "Adding missing tests or correcting existing tests",
-      "build": "Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)",
       "ci": "Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)",
-      "chore": "Other changes that don't modify src or test files",
+      "chore": "[对构建过程或辅助工具和库(如文档生成)的更改] Changes to the build process or auxiliary tools and libraries such as documentation generation",
       "revert": "Reverts a previous commit"
     }
   }
