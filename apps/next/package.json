@@ -19,23 +19,20 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-native": "0.68.2",
+    "react-native-gesture-handler": "~2.2.1",
     "react-native-reanimated": "^2.8.0",
     "react-native-safe-area-context": "^4.3.1",
+    "react-native-screens": "~3.11.1",
     "react-native-web": "0.17.7",
     "setimmediate": "^1.0.5"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.17.12",
-    "@babel/plugin-proposal-private-methods": "^7.17.12",
-    "@babel/plugin-proposal-private-property-in-object": "^7.17.12",
     "@expo/next-adapter": "^4.0.5",
-    "@types/react": "^17.0.39",
-    "@types/react-native": "^0.67.7",
     "babel-plugin-react-native-web": "^0.18.0",
     "babel-preset-expo": "^9.1.0",
     "eslint-config-next": "^12.1.0",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^9.0.0",
-    "typescript": "^4.6.4"
+    "webpack": "^5.73.0"
   }
 }

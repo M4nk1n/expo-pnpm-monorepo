@@ -6,23 +6,18 @@
   "scripts": {
     "typecheck": "tsc"
   },
-  "dependencies": {
-    "@react-navigation/native": "^6.0.10",
-    "@react-navigation/native-stack": "^6.6.2",
-    "@react-navigation/stack": "^6.2.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/react": "^17.0.39",
-    "@types/react-native": "^0.67.7",
-    "typescript": "^4.6.4"
+    "@types/react-native": "^0.67.7"
   },
   "peerDependencies": {
-    "@react-navigation/native": ">=6",
-    "@react-navigation/native-stack": ">=6",
-    "@react-navigation/stack": "^>=6",
-    "@types/react": ">=17.0.0",
-    "@types/react-native": "*",
-    "react-native": "*",
-    "typescript": "*"
+    "@react-navigation/native": "^6",
+    "@react-navigation/native-stack": "^6",
+    "@react-navigation/stack": "^6",
+    "react": "^17",
+    "react-dom": "^17",
+    "react-native": "0.68.2",
+    "react-native-screens": "^3"
   }
 }
