@@ -8,7 +8,8 @@
     "baseUrl": ".",
     "paths": {
       "@/types/*": ["typings/*"]
-    }
+    },
+    "useDefineForClassFields": true
   },
   "include": ["typings/**/*", "src/**/*"],
   "exclude": ["node_modules", "dist"],
