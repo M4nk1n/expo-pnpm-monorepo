@@ -17,7 +17,7 @@ export const KeyboardAvoidingProvider: React.FC = ({ children }) => {
   return (
     <RNKeyboardAvoidingView
       enabled={isVisible}
-      behavior={Platform.OS === 'ios' ? 'position' : undefined}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={{ flex: 1 }}
     >
       {children}
