@@ -2,7 +2,8 @@
   "extends": [
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/eslint-recommended"
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:react-hooks/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "react-native"],
@@ -43,6 +44,18 @@
     "no-unused-vars": ["off"],
     "@typescript-eslint/no-unused-vars": ["error"],
 
+    "@typescript-eslint/adjacent-overload-signatures": "error", // 要求成员重载是连续的
+    "@typescript-eslint/await-thenable": "error", // Disallows awaiting a value that is not a Thenable
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          // un-ban a type that's banned by default
+          "{}": false
+        },
+        "extendDefaults": true
+      }
+    ],
     "@typescript-eslint/member-delimiter-style": [
       "error",
       {
