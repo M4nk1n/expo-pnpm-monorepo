@@ -1,19 +1,25 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
-import { ToastContainer, Props } from '../ui/container'
-import { ToastContext } from './context'
+import React, { useRef, useState } from 'react'
+import { ToastContainerProps, ToastProps } from '../types'
+import { ToastContainer } from '../ui/container'
+import { ToastContainerDefaultProps, ToastContext } from './context'
 
-export const ToastProvider: FC<Props> = ({ children, ...props }) => {
-  const toastRef = useRef(null)
-  const [refState, setRefState] = useState({})
+export const ToastProvider: React.FC<ToastContainerProps> = ({ children, ...props }) => {
+  const [toasts, setToasts] = useState<ToastProps[]>([])
 
-  useEffect(() => {
-    setRefState(toastRef.current as any)
-  }, [])
+  /**
+   * Something use a closure(setTimeout etc.),
+   * therefore, when setTimeout is scheduled it uses the value of count at that exact moment in time,
+   * which is the initial value.
+   *
+   * To solve this, use the useRef Hook:
+   */
+  const toastsRef = useRef<ToastProps[]>([])
+  toastsRef.current = toasts
 
   return (
-    <ToastContext.Provider value={refState as any}>
+    <ToastContext.Provider value={{ props: { ...ToastContainerDefaultProps, ...props }, toasts: toastsRef, setToasts }}>
       {children}
-      <ToastContainer ref={toastRef} {...props} />
+      <ToastContainer />
     </ToastContext.Provider>
   )
 }

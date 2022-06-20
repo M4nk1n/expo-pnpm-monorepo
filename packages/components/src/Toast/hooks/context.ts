@@ -1,6 +1,18 @@
 import React from 'react'
-import { ToastContainer } from '../ui/container'
+import { ToastContainerProps, ToastProps } from '../types'
 
-export type ToastType = Pick<ToastContainer, 'show' | 'update' | 'hide' | 'hideAll'>
+export interface ToastType {
+  props: ToastContainerProps
+  toasts: React.MutableRefObject<ToastProps[]>
+  setToasts: React.Dispatch<React.SetStateAction<ToastProps[]>>
+}
 
-export const ToastContext = React.createContext({} as ToastType)
+export const ToastContainerDefaultProps: ToastContainerProps = {
+  type: 'normal',
+  duration: 'short',
+  placement: 'center',
+  animationDuration: 250,
+  animationType: 'slide-in',
+}
+
+export const ToastContext = React.createContext<ToastType>({} as ToastType)

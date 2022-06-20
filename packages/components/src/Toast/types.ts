@@ -80,3 +80,9 @@ export interface ToastProps extends ToastOptions {
   onHide?(): void
   onDestroy?(): void
 }
+
+export interface ToastContainerProps extends ToastOptions {
+  offset?: number
+  offsetTop?: number
+  offsetBottom?: number
+}

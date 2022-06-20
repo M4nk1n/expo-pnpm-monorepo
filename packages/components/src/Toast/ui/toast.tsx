@@ -14,27 +14,26 @@ import { ToastProps, TOAST_DURATION_MAP } from '../types'
 
 const { width } = Dimensions.get('window')
 
-export const Toast: React.FC<ToastProps> = props => {
-  const {
-    id,
-    message = '',
-    icon,
-    type = 'normal',
-    duration = 'short',
-    placement = 'center',
-    style,
-    textStyle,
-    animationDuration = 250,
-    animationType = 'slide-in',
-    onPress,
-    onDestroy = () => {
-      /* do nothing. */
-    },
-  } = props
-
+export const Toast: React.FC<ToastProps> = ({
+  id,
+  message = '',
+  icon,
+  type = 'normal',
+  duration = 'short',
+  placement = 'center',
+  style,
+  textStyle,
+  animationDuration = 250,
+  animationType = 'slide-in',
+  visible,
+  onPress,
+  onDestroy = () => {
+    /* do nothing. */
+  },
+  ...props
+}) => {
   const toastDuration = TOAST_DURATION_MAP[duration]
 
-  const containerRef = useRef<View>(null)
   const [animation] = useState(new Animated.Value(0))
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -56,14 +55,14 @@ export const Toast: React.FC<ToastProps> = props => {
 
   // Handles hide & hideAll
   useEffect(() => {
-    if (!props.visible) {
+    if (!visible) {
       // Unregister close timeout
       closeTimeoutRef.current && clearTimeout(closeTimeoutRef.current)
 
       // Close animation them remove from stack.
       handleClose()
     }
-  }, [props.visible])
+  }, [visible])
 
   const handleClose = () => {
     Animated.timing(animation, {
@@ -114,7 +113,7 @@ export const Toast: React.FC<ToastProps> = props => {
   }
 
   return (
-    <Animated.View ref={containerRef} style={[styles.container, animationStyle]}>
+    <Animated.View style={[styles.container, animationStyle]}>
       {props.renderType && props.renderType[type] ? (
         props.renderType[type](props)
       ) : props.renderToast ? (
