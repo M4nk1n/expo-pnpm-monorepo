@@ -1,11 +1,11 @@
-import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { combineProviders, DimensionsProvider } from '@packages/shared'
 import { KeyboardAvoidingProvider, SuspenseProvider, ToastProvider } from '@packages/components'
 
+import AppProvider from './AppProvider'
 import NavigatorProvider from './navigation/NavigatorProvider'
 
-const AppProviders = ({ children }: { children?: React.ReactNode }) =>
+const AppProviders: React.FC = ({ children }) =>
   combineProviders(
     [
       // order matters here, be careful!
@@ -16,6 +16,7 @@ const AppProviders = ({ children }: { children?: React.ReactNode }) =>
       SuspenseProvider,
       KeyboardAvoidingProvider,
       ToastProvider,
+      AppProvider, // uses: GizSDKProvider
       NavigatorProvider,
     ],
     children
