@@ -3,10 +3,8 @@ import { View } from 'react-native'
 
 export interface SuspenseProviderProps {
   fallback?: React.ReactNode
-  children?: React.ReactNode
-  [key: string]: any
 }
 
-export const SuspenseProvider: React.FC = ({ fallback, ...props }: SuspenseProviderProps) => (
+export const SuspenseProvider: React.FC<SuspenseProviderProps> = ({ fallback, ...props }) => (
   <Suspense fallback={fallback ?? <View />} {...props} />
 )
