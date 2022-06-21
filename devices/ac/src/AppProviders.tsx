@@ -1,10 +1,9 @@
-import React from 'react'
 import { combineProviders } from '@packages/shared'
 import { KeyboardAvoidingProvider, SuspenseProvider, ToastProvider } from '@packages/components'
 
 import NavigatorProvider from './navigation/NavigatorProvider'
 
-const AppProviders = ({ children }: { children?: React.ReactNode }) =>
+const AppProviders: React.FC = ({ children }) =>
   combineProviders(
     [
       // order matters here, be careful!

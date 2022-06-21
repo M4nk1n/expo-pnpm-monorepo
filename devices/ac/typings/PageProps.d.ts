@@ -1,0 +1,1 @@
+type DevicePageProps = { deviceType: undefined }
