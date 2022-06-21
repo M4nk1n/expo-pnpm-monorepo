@@ -6,7 +6,6 @@
 import React, { lazy } from 'react'
 import { useRoute } from '@react-navigation/native'
 
-import { DevicePageProps } from '@/types/navigation'
 import { useRouteProp } from '@packages/navigation'
 
 const deviceArray = {

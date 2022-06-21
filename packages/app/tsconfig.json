@@ -5,14 +5,10 @@
     "declaration": true,
     "outDir": "dist",
     "rootDir": "src",
-    "baseUrl": ".",
-    "paths": {
-      "@/types/*": ["typings/*"]
-    },
     // https://mobx.js.org/installation.html#use-spec-compliant-transpilation-for-class-properties
     "useDefineForClassFields": true
   },
-  "include": ["typings/**/*", "src/**/*"],
+  "include": ["global.d.ts", "src/**/*"],
   "exclude": ["node_modules", "dist"],
   "compileOnSave": false
 }

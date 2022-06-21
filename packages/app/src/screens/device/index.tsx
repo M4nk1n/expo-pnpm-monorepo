@@ -7,7 +7,6 @@ import { View } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 
 import { useRouteProp } from '@packages/navigation'
-import { DevicePageProps } from '@/types/navigation'
 
 const Device = () => {
   const navigation = useNavigation()
@@ -20,10 +19,8 @@ const Device = () => {
       navigation.goBack()
       return
     }
-    import("@devices/" + route.params.deviceType + "/src/index")
-      .then(({ default: DeviceModule }) =>
-        setDeviceModule(<DeviceModule />)
-      )
+    import('@devices/' + route.params.deviceType + '/src/index')
+      .then(({ default: DeviceModule }) => setDeviceModule(<DeviceModule />))
       .catch(err => {
         console.log(`device page error: ${err}`)
         navigation.goBack()
