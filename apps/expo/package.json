@@ -2,7 +2,7 @@
   "name": "@apps/expo",
   "version": "1.0.0",
   "private": true,
-  "main": "AppEntry.js",
+  "main": "index.js",
   "scripts": {
     "start": "expo start --dev-client",
     "eas:dev": "eas build --profile development",
