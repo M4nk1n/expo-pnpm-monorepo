@@ -4,10 +4,13 @@
   "private": true,
   "main": "AppEntry.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "eject": "expo eject"
+    "start": "expo start --dev-client",
+    "eas:dev": "eas build --profile development",
+    "eas:preview": "eas build --profile preview",
+    "eas:production": "eas build --profile production",
+    "expo:prebuild": "expo prebuild --no-install && pnpm add-adnroid-sign",
+    "add-adnroid-sign": "sed -i '' '1s/^/apply from: \"..\\/..\\/android-sign.gradle\"\\n/' android/app/build.gradle",
+    "eas-build-pre-install": "npm list -g && echo 'Start: update pnpm to latest.' && npm install -g pnpm && npm list -g"
   },
   "dependencies": {
     "@packages/app": "workspace:*",

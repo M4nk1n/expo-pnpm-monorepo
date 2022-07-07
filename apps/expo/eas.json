@@ -1,0 +1,56 @@
+{
+  "cli": {
+    "version": ">= 0.54.1"
+  },
+  "build": {
+    "base": {
+      "credentialsSource": "local",
+      "android": {
+        "buildType": "apk",
+        "image": "latest",
+        "env": {
+          "PLATFORM": "android"
+        }
+      },
+      "ios": {
+        "image": "latest",
+        "env": {
+          "PLATFORM": "ios"
+        }
+      }
+    },
+    "development": {
+      "extends": "base",
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "ENVIRONMENT": "development"
+      },
+      "android": {
+        "withoutCredentials": true
+      },
+      "ios": {
+        "buildConfiguration": "Debug"
+      }
+    },
+    "preview": {
+      "extends": "base",
+      "distribution": "internal",
+      "env": {
+        "ENVIRONMENT": "preview"
+      }
+    },
+    "production": {
+      "extends": "base",
+      "env": {
+        "ENVIRONMENT": "production"
+      },
+      "android": {
+        "distribution": "internal"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
