@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "description": "Expo Workspace with pnpm",
-  "packageManager": "pnpm@7.2.1",
+  "packageManager": "pnpm@7.5.0",
   "engines": {
     "node": ">=16.9.0",
-    "pnpm": ">=6"
+    "pnpm": ">=7"
   },
   "scripts": {
     "bootstrap": "pnpm install",
@@ -48,15 +48,16 @@
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
-        "react",
         "@babel/core",
         "@babel/preset-env",
-        "typescript",
-        "eslint"
+        "eslint",
+        "react",
+        "typescript"
       ],
-      "allowedVersions": {
-        "next": "^12"
-      }
+      "allowAny": [
+        "next",
+        "react-native"
+      ]
     }
   }
 }

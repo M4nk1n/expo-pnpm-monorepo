@@ -1,5 +1,9 @@
 packages:
-  # all packages in subdirs of packages/ and components/
+  # Expo, Next.js, etc. in apps/
   - 'apps/**'
+  # Sources
   - 'packages/**'
+  # device pages
   - 'devices/**'
+  # packages patches
+  - '!patches/**'
