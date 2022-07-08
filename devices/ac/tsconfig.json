@@ -11,7 +11,7 @@
     },
     "useDefineForClassFields": true
   },
-  "include": ["global.d.ts", "src/**/*"],
+  "include": ["typings/**/*", "src/**/*"],
   "exclude": ["node_modules", "dist"],
   "compileOnSave": false
 }
