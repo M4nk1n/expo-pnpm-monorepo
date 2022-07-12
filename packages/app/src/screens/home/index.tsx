@@ -1,13 +1,15 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { Observer, useLocalObservable } from 'mobx-react-lite'
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { useNavigation } from '@react-navigation/native'
 
 import { useAppState, useDimensions, useKeyboard } from '@packages/shared'
+import { useI18n } from '@packages/i18n'
 import { useNavigationProp } from '@packages/navigation'
 import { useToast } from '@packages/components'
 
+import { LanguageScope } from '../../locales/languages'
 import Store from '../../store'
 
 const styles = StyleSheet.create({
@@ -24,8 +26,10 @@ const Home = () => {
   const localStore = useLocalObservable(() => Store.app)
   const toast = useToast()
   const dims = useDimensions()
+  const { i18n, setLocale, t } = useI18n()
 
-  const [value, onChangeText] = React.useState('Multiline Placeholder')
+  const [loc, setLoc] = useState(i18n.defaultLocale)
+  const [value, onChangeText] = useState('Multiline Placeholder')
 
   const onBackground = useCallback(() => {
     // do something
@@ -59,10 +63,20 @@ const Home = () => {
     keyboardDismiss()
   }
 
+  const setOtherLocale = () => {
+    if (loc === 'en') {
+      setLoc('zh')
+      setLocale('zh')
+    } else {
+      setLoc('en')
+      setLocale('en')
+    }
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text>{t('hello', LanguageScope)} App.tsx to start working on your app!</Text>
       <Text>==========================================</Text>
       <Button onPress={() => click('ac')} title='Click to Ac' />
       <Button onPress={() => click('light')} title='Click to Light' />
@@ -77,6 +91,9 @@ const Home = () => {
       <Text>==========================================</Text>
       <Button onPress={() => testToast(JSON.stringify(dims))} title='Click to print useDimensions()' />
       <Button onPress={() => testToast('success')} title='Click to test Toast' />
+
+      <Text>===================================</Text>
+      <Button onPress={setOtherLocale} title={`Click to change language`} />
 
       <Text>==========================================</Text>
       <Button onPress={dismissKeyboard} title='Click to dismiss keyboard' />
