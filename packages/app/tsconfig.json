@@ -5,10 +5,15 @@
     "declaration": true,
     "outDir": "dist",
     "rootDir": "src",
+    "baseUrl": "src",
+    "paths": {
+      "@types/*": ["@types/*"],
+      "@app/*": ["*"]
+    },
     // https://mobx.js.org/installation.html#use-spec-compliant-transpilation-for-class-properties
     "useDefineForClassFields": true
   },
-  "include": ["typings/**/*", "src/**/*", "src/**/*.json"],
+  "include": ["src/**/*", "src/**/*.json"],
   "exclude": ["node_modules", "dist"],
   "compileOnSave": false
 }

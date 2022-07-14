@@ -14,6 +14,7 @@ const projectRoot = __dirname
 
 const withTM = require('next-transpile-modules')([
   'react-native-web',
+  'i18n-js',
   // ...dependenciesToTranspile
 ])
 

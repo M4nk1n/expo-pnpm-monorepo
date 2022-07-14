@@ -3,8 +3,8 @@ import { combineProviders, DimensionsProvider } from '@packages/shared'
 import { KeyboardAvoidingProvider, SuspenseProvider, ToastProvider } from '@packages/components'
 import { I18nProvider } from '@packages/i18n'
 
-import AppProvider from './AppProvider'
-import NavigatorProvider from './navigation/NavigatorProvider'
+import NavigatorProvider from '@app/navigation/NavigatorProvider'
+import AppProvider from '@app/AppProvider'
 
 const AppProviders: React.FC = ({ children }) =>
   combineProviders(

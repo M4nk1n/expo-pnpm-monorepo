@@ -3,9 +3,9 @@ import React, { useEffect } from 'react'
 import { useI18n } from '@packages/i18n'
 import { PureWrapper } from '@packages/components'
 
-import { LanguageScope } from './locales/languages'
-import en from './locales/languages/enUS.json'
-import cn from './locales/languages/zhCN.json'
+import { LanguageScope } from '@app/locales/languages'
+import en from '@app/locales/languages/enUS.json'
+import cn from '@app/locales/languages/zhCN.json'
 
 const AppProvider: React.FC = props => {
   const { setDefaultLocale, store: i18nStore } = useI18n()

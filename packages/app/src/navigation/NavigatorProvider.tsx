@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavigationContainer, Stack } from '@packages/navigation'
 
-import Home from '../screens/home'
-import Device from '../screens/device'
+import Home from '@app/screens/home'
+import Device from '@app/screens/device'
 
 export default function NavigatorProvider() {
   return (
