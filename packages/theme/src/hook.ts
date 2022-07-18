@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { useColorScheme } from 'react-native'
-import { ColorScheme, Themes } from './@types'
+import type { ColorScheme, Themes } from './@types'
 import { ThemeContext } from './context'
 
 export const useTheme = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { ColorScheme, Themes } from './@types'
+import type { ColorScheme, Themes } from './@types'
 import { ThemeContext } from './context'
 import { DefaultTheme } from './themes'
 
