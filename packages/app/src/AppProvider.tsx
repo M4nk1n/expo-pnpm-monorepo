@@ -5,10 +5,10 @@ import { useI18n } from '@packages/i18n'
 import { useTheme } from '@packages/theme'
 import { PureWrapper } from '@packages/components'
 
-import { LanguageScope } from '@app/locales/languages'
 import { themes } from '@app/themes'
-import en from '@app/locales/languages/enUS.json'
-import cn from '@app/locales/languages/zhCN.json'
+import { LanguageScope } from '@app/locale'
+import en from '@app/locale/languages/enUS.json'
+import cn from '@app/locale/languages/zhCN.json'
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync().catch(err => {
@@ -29,6 +29,7 @@ const AppProvider: React.FC = props => {
 
         // theme init
         initThemes(themes)
+
         // i18n init.
         i18nStore(en, 'en', LanguageScope)
         i18nStore(cn, 'zh', LanguageScope)
