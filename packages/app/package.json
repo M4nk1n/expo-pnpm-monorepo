@@ -10,6 +10,7 @@
   "dependencies": {
     "@packages/shared": "workspace:*",
     "@packages/i18n": "workspace:*",
+    "@packages/theme": "workspace:*",
     "@packages/navigation": "workspace:*",
     "@packages/components": "workspace:*",
     "@devices/ac": "workspace:*",

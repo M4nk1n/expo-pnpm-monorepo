@@ -2,9 +2,11 @@ import React, { useLayoutEffect, useEffect, useState } from 'react'
 import * as SplashScreen from 'expo-splash-screen'
 
 import { useI18n } from '@packages/i18n'
+import { useTheme } from '@packages/theme'
 import { PureWrapper } from '@packages/components'
 
 import { LanguageScope } from '@app/locales/languages'
+import { themes } from '@app/themes'
 import en from '@app/locales/languages/enUS.json'
 import cn from '@app/locales/languages/zhCN.json'
 
@@ -17,6 +19,7 @@ SplashScreen.preventAutoHideAsync().catch(err => {
 const AppProvider: React.FC = props => {
   const [appIsReady, setAppIsReady] = useState(false)
   const { setDefaultLocale, setLocale, store: i18nStore } = useI18n()
+  const { initThemes } = useTheme()
 
   useEffect(() => {
     const prepare = async () => {
@@ -24,6 +27,8 @@ const AppProvider: React.FC = props => {
         // Some init code here.
         // SDK, Push Services, etc.
 
+        // theme init
+        initThemes(themes)
         // i18n init.
         i18nStore(en, 'en', LanguageScope)
         i18nStore(cn, 'zh', LanguageScope)

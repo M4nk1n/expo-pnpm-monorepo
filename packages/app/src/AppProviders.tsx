@@ -1,7 +1,8 @@
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { combineProviders, DimensionsProvider } from '@packages/shared'
-import { KeyboardAvoidingProvider, SuspenseProvider, ToastProvider } from '@packages/components'
 import { I18nProvider } from '@packages/i18n'
+import { ThemeProvider } from '@packages/theme'
+import { KeyboardAvoidingProvider, SuspenseProvider, ToastProvider } from '@packages/components'
 
 import NavigatorProvider from '@app/navigation/NavigatorProvider'
 import AppProvider from '@app/AppProvider'
@@ -17,6 +18,7 @@ const AppProviders: React.FC = ({ children }) =>
       SuspenseProvider,
       KeyboardAvoidingProvider,
       I18nProvider,
+      ThemeProvider,
       ToastProvider,
       AppProvider, // uses: GizSDKProvider
       NavigatorProvider,

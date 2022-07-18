@@ -166,6 +166,7 @@ importers:
       '@packages/i18n': workspace:*
       '@packages/navigation': workspace:*
       '@packages/shared': workspace:*
+      '@packages/theme': workspace:*
       '@types/react': ^17.0.39
       '@types/react-native': ^0.67.7
       mobx: ^6.6.0
@@ -177,6 +178,7 @@ importers:
       '@packages/i18n': link:../i18n
       '@packages/navigation': link:../navigation
       '@packages/shared': link:../shared
+      '@packages/theme': link:../theme
       mobx: 6.6.1
       mobx-react-lite: 3.4.0_mobx@6.6.1
     devDependencies:
