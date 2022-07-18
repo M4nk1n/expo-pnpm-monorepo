@@ -5,11 +5,6 @@ export type ToastDuration = 'long' | 'short'
 export type ToastPlacement = 'top' | 'bottom' | 'center'
 export type ToastAnimationType = 'slide-in' | 'zoom-in'
 
-export const TOAST_DURATION_MAP: Record<ToastDuration, number> = {
-  short: 2500,
-  long: 5000,
-}
-
 export interface ToastOptions {
   /**
    * Id is optional, you may provide an id only if you want to update toast later using toast.update()

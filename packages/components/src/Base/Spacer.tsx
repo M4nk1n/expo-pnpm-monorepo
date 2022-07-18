@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 
-import { SpacerProps } from './types'
+import type { SpacerProps } from './types'
 
 const styles = StyleSheet.create({
   view: {

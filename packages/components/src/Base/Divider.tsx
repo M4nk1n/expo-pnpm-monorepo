@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { DividerProps } from './types'
+import type { DividerProps } from './types'
 
 const Divider: React.FC<DividerProps> = ({ horizontal = false, width = 10, height = 40, color = '#eee', ...prop }) => {
   const innerStyle = horizontal

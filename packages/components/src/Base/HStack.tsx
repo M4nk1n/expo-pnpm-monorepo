@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 
-import { StackProps } from './types'
+import type { StackProps } from './types'
 
 const styles = StyleSheet.create({
   view: {

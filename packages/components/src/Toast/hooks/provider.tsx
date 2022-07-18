@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { ToastContainerProps, ToastProps } from '../types'
+import type { ToastContainerProps, ToastProps } from '../types'
 import { ToastContainer } from '../ui/container'
 import { ToastContainerDefaultProps, ToastContext } from './context'
 

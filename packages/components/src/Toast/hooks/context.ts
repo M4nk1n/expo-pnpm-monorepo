@@ -1,5 +1,5 @@
 import React from 'react'
-import { ToastContainerProps, ToastProps } from '../types'
+import type { ToastContainerProps, ToastProps } from '../types'
 
 export interface ToastType {
   props: ToastContainerProps

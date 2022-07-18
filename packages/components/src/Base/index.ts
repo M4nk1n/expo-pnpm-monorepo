@@ -1,3 +1,4 @@
+export * from './types.d'
 export * from './Spacer'
 export * from './HStack'
 export * from './VStack'
