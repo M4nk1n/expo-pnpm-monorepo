@@ -1,0 +1,17 @@
+{
+  "name": "@packages/theme",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "src",
+  "scripts": {
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@types/react": ">=17",
+    "@types/react-native": ">=0.67"
+  },
+  "peerDependencies": {
+    "react": "^17"
+  }
+}

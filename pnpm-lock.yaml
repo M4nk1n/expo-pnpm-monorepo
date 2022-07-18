@@ -201,6 +201,14 @@ importers:
   packages/shared:
     specifiers: {}
 
+  packages/theme:
+    specifiers:
+      '@types/react': '>=17'
+      '@types/react-native': '>=0.67'
+    devDependencies:
+      '@types/react': 17.0.47
+      '@types/react-native': 0.67.12
+
 packages:
 
   /@ampproject/remapping/2.2.0:
