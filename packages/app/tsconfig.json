@@ -7,7 +7,6 @@
     "rootDir": "src",
     "baseUrl": "src",
     "paths": {
-      "@types/*": ["@types/*"],
       "@app/*": ["*"]
     },
     // https://mobx.js.org/installation.html#use-spec-compliant-transpilation-for-class-properties

@@ -9,8 +9,8 @@ import { useI18n } from '@packages/i18n'
 import { useNavigationProp } from '@packages/navigation'
 import { useToast } from '@packages/components'
 
-import { LanguageScope } from '../../locales/languages'
-import Store from '../../store'
+import { LanguageScope } from '@app/locale'
+import Store from '@app/store'
 
 const styles = StyleSheet.create({
   container: {
@@ -76,7 +76,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
-      <Text>{t('hello', LanguageScope)} App.tsx to start working on your app!</Text>
+      <Text>{t('Hello', LanguageScope)} App.tsx to start working on your app!</Text>
       <Text>==========================================</Text>
       <Button onPress={() => click('ac')} title='Click to Ac' />
       <Button onPress={() => click('light')} title='Click to Light' />
