@@ -1,5 +1,5 @@
 import { set } from 'lodash'
-import { I18n } from 'i18n-js/typings'
+import type { I18n } from 'i18n-js/typings'
 
 export const is = <T extends object>(v: any, k: string): v is T => {
   return k in v
