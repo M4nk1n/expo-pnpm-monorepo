@@ -12,9 +12,12 @@ export const GlobalStyles = StyleSheet.create({
     alignItems: 'center',
   },
   Shadow: {
-    shadowColor: '#333',
-    shadowRadius: 2,
-    shadowOpacity: 0.2,
-    shadowOffset: { width: 2, height: 2 },
+    shadowColor: '#000',
+    shadowRadius: 4,
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 3 },
+  },
+  Mask: {
+    backgroundColor: '#0000007F',
   },
 })
