@@ -1,25 +1,17 @@
 import React, { useCallback, useState } from 'react'
 import { Observer, useLocalObservable } from 'mobx-react-lite'
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Button, Text, TextInput, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { useNavigation } from '@react-navigation/native'
 
 import { useAppState, useDimensions, useKeyboard } from '@packages/shared'
 import { useI18n } from '@packages/i18n'
+import { useStyles } from '@packages/theme'
 import { useNavigationProp } from '@packages/navigation'
 import { useToast } from '@packages/components'
 
 import { LanguageScope } from '@app/locale'
 import Store from '@app/store'
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
 
 const Home = () => {
   const navigation = useNavigation<useNavigationProp>()
@@ -72,6 +64,15 @@ const Home = () => {
       setLocale('en')
     }
   }
+
+  const styles = useStyles(theme => ({
+    container: {
+      flex: 1,
+      backgroundColor: theme.Color.BackgroundColor,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  }))
 
   return (
     <View style={styles.container}>
