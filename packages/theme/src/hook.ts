@@ -1,6 +1,6 @@
-import { useContext } from 'react'
-import { useColorScheme } from 'react-native'
-import type { ColorScheme, Themes } from './@types'
+import { DependencyList, useContext, useMemo } from 'react'
+import { StyleSheet, useColorScheme } from 'react-native'
+import type { ColorScheme, ThemeProps, Themes } from './@types'
 import { ThemeContext } from './context'
 
 export const useTheme = () => {
@@ -69,4 +69,17 @@ export const useTheme = () => {
      */
     changeColorScheme,
   }
+}
+
+export const useStyles = <T extends StyleSheet.NamedStyles<T> | StyleSheet.NamedStyles<any>>(
+  create: (theme: ThemeProps) => T | StyleSheet.NamedStyles<T>,
+  deps: DependencyList = []
+): T => {
+  const { theme } = useTheme()
+  return useMemo(
+    () => StyleSheet.create(create(theme)),
+    // I wish exhaustive-deps could check also custom hooks somehow.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [theme, ...deps]
+  )
 }
