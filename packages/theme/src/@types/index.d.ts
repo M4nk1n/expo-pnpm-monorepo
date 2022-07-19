@@ -146,6 +146,7 @@ export type ThemeProps = {
     SmallLineHeight: number
     BaseLineHeight: number
     LargeLineHeight: number
+    HugeLineHeight: number
 
     // 边框、线宽
     SmallLineWidth: number

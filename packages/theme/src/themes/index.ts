@@ -56,6 +56,7 @@ export const DefaultTheme: ThemeProps = {
     SmallLineHeight: 1,
     BaseLineHeight: 1.2,
     LargeLineHeight: 1.5,
+    HugeLineHeight: 2,
 
     SmallLineWidth: 0.5,
     BaseLineWidth: 1,
