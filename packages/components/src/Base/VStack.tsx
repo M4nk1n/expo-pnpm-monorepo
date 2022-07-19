@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 })
 
 const VStack: React.FC<StackProps> = ({ style, ...prop }) => {
-  return <View style={{ ...styles.view, ...style }} {...prop} />
+  return <View style={[styles.view, style]} {...prop} />
 }
 
 export { VStack }

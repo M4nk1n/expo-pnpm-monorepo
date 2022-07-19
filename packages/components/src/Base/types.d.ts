@@ -1,11 +1,11 @@
-import { ViewStyle } from 'react-native'
+import { StyleProp, ViewStyle } from 'react-native'
 
 export type SpacerProps = {
   [key: string]: any
 }
 
 export type StackProps = {
-  style?: ViewStyle
+  style?: StyleProp<ViewStyle>
   [key: string]: any
 }
 
@@ -14,6 +14,6 @@ export type DividerProps = {
   width?: number
   height?: number
   color?: string
-  style?: ViewStyle
+  style?: StyleProp<ViewStyle>
   [key: string]: any
 }
