@@ -8,8 +8,8 @@
     "typecheck": "tsc"
   },
   "devDependencies": {
-    "@types/react": ">=17",
-    "@types/react-native": ">=0.67"
+    "@types/react": "^17.0.39",
+    "@types/react-native": "^0.67.7"
   },
   "peerDependencies": {
     "react": "^17"
