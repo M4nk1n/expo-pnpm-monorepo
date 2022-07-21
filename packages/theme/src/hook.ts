@@ -9,8 +9,6 @@ export const useTheme = () => {
 
   const realColorScheme = colorScheme === 'default' ? RNColorScheme || 'light' : colorScheme
 
-  const theme = themes[realColorScheme]
-
   /**
    * 初始化主题
    *
@@ -25,28 +23,20 @@ export const useTheme = () => {
     setThemes(themes)
   }
 
+  /**
+   * 修改当前 ColorScheme  主题
+   * ```
+   * "default" -> 使用系统定义的 ColorScheme
+   * "light" -> 强制使用 light 模式
+   * "dark" -> 强制使用 dark 模式
+   * ```
+   * @param colorScheme "default" | "light" | "dark"
+   */
   const changeColorScheme = (colorScheme: ColorScheme) => {
     setColorScheme(colorScheme)
   }
 
   return {
-    initThemes,
-
-    /**
-     * 主题变量（颜色、空间、大小定义等）
-     */
-    theme,
-
-    /**
-     * 当前使用中的 ColorScheme 主题
-     * ```
-     * "light" -> 强制使用 light 模式
-     * "dark" -> 强制使用 dark 模式
-     * ```
-     * @return "light" | "dark"
-     */
-    currentColorScheme: realColorScheme,
-
     /**
      * 当前使用的 ColorScheme 设置，由 changeColorScheme 设置
      * ```
@@ -59,14 +49,21 @@ export const useTheme = () => {
     colorScheme,
 
     /**
-     * 修改当前 ColorScheme  主题
+     * 当前使用中的 ColorScheme 主题
      * ```
-     * "default" -> 使用系统定义的 ColorScheme
      * "light" -> 强制使用 light 模式
      * "dark" -> 强制使用 dark 模式
      * ```
-     * @param colorScheme "default" | "light" | "dark"
+     * @return "light" | "dark"
      */
+    currentColorScheme: realColorScheme,
+
+    /**
+     * 主题变量（颜色、空间、大小定义等）
+     */
+    theme: themes[realColorScheme],
+
+    initThemes,
     changeColorScheme,
   }
 }
