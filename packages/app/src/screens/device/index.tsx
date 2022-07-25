@@ -4,13 +4,12 @@
  */
 import React, { useEffect, useState } from 'react'
 import { View } from 'react-native'
-import { useNavigation, useRoute } from '@react-navigation/native'
 
-import { useRouteProp } from '@packages/navigation'
+import { useNavigation, useRoute, RoutePageProp } from '@packages/navigation'
 
 const Device = () => {
   const navigation = useNavigation()
-  const route = useRoute<useRouteProp<DevicePageProps>>()
+  const route = useRoute<RoutePageProp<DevicePageProps>>()
   const [deviceModule, setDeviceModule] = useState<JSX.Element>(<View />)
 
   useEffect(() => {

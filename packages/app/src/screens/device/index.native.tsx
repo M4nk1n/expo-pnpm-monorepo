@@ -4,9 +4,8 @@
  * See: https://github.com/facebook/metro/issues/52
  */
 import React, { lazy } from 'react'
-import { useRoute } from '@react-navigation/native'
 
-import { useRouteProp } from '@packages/navigation'
+import { useRoute, RoutePageProp } from '@packages/navigation'
 
 const deviceArray = {
   undefined: lazy(() => import('@devices/ac')),
@@ -15,7 +14,7 @@ const deviceArray = {
 }
 
 const Device = () => {
-  const route = useRoute<useRouteProp<DevicePageProps>>()
+  const route = useRoute<RoutePageProp<DevicePageProps>>()
   const deviceType = route.params.deviceType
   const DeviceModule = deviceArray[`${deviceType}`] ?? deviceArray.undefined
   return <DeviceModule />

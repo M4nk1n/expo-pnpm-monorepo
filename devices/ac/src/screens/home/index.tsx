@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
-import { useNavigationProp } from '@packages/navigation'
+import { useNavigation, NavigateProp } from '@packages/navigation'
 
 const styles = StyleSheet.create({
   container: {
@@ -13,20 +12,20 @@ const styles = StyleSheet.create({
 })
 
 const Home = (): JSX.Element => {
-  const navigation = useNavigation<useNavigationProp>()
+  const navigation = useNavigation<NavigateProp>()
 
   useEffect(() => {
     console.log('@device/ac init.')
   }, [])
 
   const goAbout = () => {
-    navigation.navigate("DeviceAbout")
+    navigation.navigate('DeviceAbout')
   }
 
   return (
     <View style={styles.container}>
       <Text>I am device(ac)!</Text>
-      <Button onPress={goAbout} title="Click to About" />
+      <Button onPress={goAbout} title='Click to About' />
     </View>
   )
 }

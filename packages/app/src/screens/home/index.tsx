@@ -2,19 +2,18 @@ import React, { useCallback, useState } from 'react'
 import { Observer, useLocalObservable } from 'mobx-react-lite'
 import { Button, Text, TextInput, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
-import { useNavigation } from '@react-navigation/native'
 
 import { useAppState, useDimensions, useKeyboard } from '@packages/shared'
 import { useI18n } from '@packages/i18n'
 import { useStyles } from '@packages/theme'
-import { useNavigationProp } from '@packages/navigation'
+import { useNavigation, NavigateProp } from '@packages/navigation'
 import { useToast } from '@packages/components'
 
 import { LanguageScope } from '@app/locale'
 import Store from '@app/store'
 
 const Home = () => {
-  const navigation = useNavigation<useNavigationProp>()
+  const navigation = useNavigation<NavigateProp>()
   const localStore = useLocalObservable(() => Store.app)
   const toast = useToast()
   const dims = useDimensions()
