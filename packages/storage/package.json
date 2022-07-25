@@ -8,8 +8,8 @@
     "typecheck": "tsc"
   },
   "peerDependencies": {
-    "@react-native-async-storage/async-storage": "^1.17.7",
-    "expo-secure-store": "^11.2.0",
-    "react": "^17"
+    "@react-native-async-storage/async-storage": ">=1.17",
+    "expo-secure-store": ">=11.2",
+    "react": ">=17"
   }
 }

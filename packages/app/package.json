@@ -8,11 +8,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@packages/shared": "workspace:*",
-    "@packages/i18n": "workspace:*",
-    "@packages/theme": "workspace:*",
-    "@packages/navigation": "workspace:*",
     "@packages/components": "workspace:*",
+    "@packages/i18n": "workspace:*",
+    "@packages/navigation": "workspace:*",
+    "@packages/shared": "workspace:*",
+    "@packages/theme": "workspace:*",
     "@devices/ac": "workspace:*",
     "@devices/light": "workspace:*",
     "mobx": "^6.6.0",
@@ -23,14 +23,15 @@
     "@types/react-native": "^0.67.7"
   },
   "peerDependencies": {
-    "expo": "^45.0.0",
-    "expo-splash-screen": "~0.15.1",
-    "expo-status-bar": "~1.3.0",
-    "react": "^17",
-    "react-dom": "^17",
-    "react-native": "0.68.2",
-    "react-native-gesture-handler": "~2.2.1",
-    "react-native-safe-area-context": "^4",
-    "react-native-screens": "^3"
+    "expo": ">=45.0.0",
+    "expo-splash-screen": ">=0.15.1",
+    "expo-status-bar": ">=1.3.0",
+    "react": ">=17",
+    "react-dom": ">=17",
+    "react-native": ">=0.68.2",
+    "react-native-exit-app": "*",
+    "react-native-gesture-handler": ">=2.2.1",
+    "react-native-safe-area-context": ">=4.3.1",
+    "react-native-screens": ">=3.11.1"
   }
 }

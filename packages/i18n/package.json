@@ -8,12 +8,12 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "i18n-js": "^4.0.0-alpha.14"
+    "i18n-js": "next"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.182"
   },
   "peerDependencies": {
-    "react": "^17"
+    "react": ">=17"
   }
 }
