@@ -6,6 +6,7 @@ import { I18nContext } from './context'
 
 /**
  * See: {@link: https://www.npmjs.com/package/i18n-js/v/next}
+ * GitHub: {@link: https://github.com/fnando/i18n}
  */
 export const useI18n = () => {
   const { i18n } = useContext(I18nContext)
