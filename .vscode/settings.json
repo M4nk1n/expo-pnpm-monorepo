@@ -1,4 +1,9 @@
 {
   "npm.packageManager": "pnpm",
-  "npm.exclude": "**/@(devices|packages)/**"
+  "files.exclude": {
+    "**/.git": false
+  },
+  "eslint.packageManager": "pnpm",
+  "npm-intellisense.importLinebreak": "",
+  "npm.scriptExplorerExclude": ["install"]
 }
