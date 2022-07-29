@@ -1,15 +1,37 @@
 import React from 'react'
-import { View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import type { DividerProps } from './types'
 
-const Divider: React.FC<DividerProps> = ({ horizontal = false, width = 10, height = 40, color = '#eee', ...prop }) => {
-  const innerStyle = horizontal
-    ? { borderBottom: `1px solid ${color}`, width, height: 1 }
-    : { borderLeft: `1px solid ${color}`, width: 1, height }
+const styles = StyleSheet.create({
+  container: {
+    padding: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  horizontalInnerStyle: {
+    height: 1,
+    borderBottomWidth: 1,
+  },
+  verticalInnerStyle: {
+    width: 1,
+    borderLeftWidth: 1,
+  },
+})
+
+const Divider: React.FC<DividerProps> = ({ horizontal = false, color = '#eee', width, height, style, ...prop }) => {
   return (
-    <View {...prop}>
-      <View style={innerStyle} />
+    <View
+      style={[horizontal ? { flexDirection: 'row' } : { flexDirection: 'column' }, styles.container, style]}
+      {...prop}
+    >
+      <View
+        style={
+          horizontal
+            ? [styles.horizontalInnerStyle, { borderColor: color, width }, !width ? { flex: 1 } : {}]
+            : [styles.verticalInnerStyle, { borderColor: color, height }, !height ? { flex: 1 } : {}]
+        }
+      />
     </View>
   )
 }

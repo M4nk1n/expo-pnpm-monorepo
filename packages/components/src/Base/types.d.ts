@@ -1,19 +1,12 @@
-import { StyleProp, ViewStyle } from 'react-native'
+import type { ColorValue, ViewProps } from 'react-native'
 
-export type SpacerProps = {
-  [key: string]: any
-}
+export type SpacerProps = ViewProps
 
-export type StackProps = {
-  style?: StyleProp<ViewStyle>
-  [key: string]: any
-}
+export type StackProps = ViewProps
 
-export type DividerProps = {
+export interface DividerProps extends ViewProps {
   horizontal?: boolean
   width?: number
   height?: number
-  color?: string
-  style?: StyleProp<ViewStyle>
-  [key: string]: any
+  color?: ColorValue
 }
