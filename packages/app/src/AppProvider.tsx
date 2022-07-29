@@ -1,6 +1,7 @@
-import React, { useLayoutEffect, useEffect, useState } from 'react'
+import React from 'react'
 import * as SplashScreen from 'expo-splash-screen'
 
+import { useBoolean, useEffectOnce, useIsomorphicLayoutEffect } from '@packages/shared'
 import { useI18n } from '@packages/i18n'
 import { useTheme } from '@packages/theme'
 import { PureWrapper } from '@packages/components'
@@ -17,15 +18,14 @@ SplashScreen.preventAutoHideAsync().catch(err => {
 })
 
 const AppProvider: React.FC = props => {
-  const [appIsReady, setAppIsReady] = useState(false)
+  const [isAppReady, { setTrue: setAppIsReady }] = useBoolean(false)
   const { setDefaultLocale, setLocale, store: i18nStore } = useI18n()
   const { initThemes } = useTheme()
 
-  useEffect(() => {
+  useEffectOnce(() => {
     const prepare = async () => {
       try {
-        // Some init code here.
-        // SDK, Push Services, etc.
+        // Some init code here (dont need check privacy).
 
         // theme init
         initThemes(themes)
@@ -43,12 +43,12 @@ const AppProvider: React.FC = props => {
         console.warn(e)
       } finally {
         // Tell the application to render
-        setAppIsReady(true)
+        setAppIsReady()
       }
     }
 
     prepare()
-  }, [])
+  })
 
   const hideSplash = async () => {
     try {
@@ -64,13 +64,13 @@ const AppProvider: React.FC = props => {
     }
   }
 
-  useLayoutEffect(() => {
-    if (appIsReady) {
+  useIsomorphicLayoutEffect(() => {
+    if (isAppReady) {
       hideSplash()
     }
-  }, [appIsReady])
+  }, [isAppReady])
 
-  if (!appIsReady) {
+  if (!isAppReady) {
     return null
   }
 

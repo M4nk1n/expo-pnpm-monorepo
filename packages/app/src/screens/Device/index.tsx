@@ -2,9 +2,10 @@
  * For: Nexh.js
  * React Native 不支持带参数的 dynamic import，所以直接分开写
  */
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { View } from 'react-native'
 
+import { useEffectOnce } from '@packages/shared'
 import { useNavigation, useRoute, RoutePageProp } from '@packages/navigation'
 
 const Device = () => {
@@ -12,7 +13,7 @@ const Device = () => {
   const route = useRoute<RoutePageProp<DevicePageProps>>()
   const [deviceModule, setDeviceModule] = useState<JSX.Element>(<View />)
 
-  useEffect(() => {
+  useEffectOnce(() => {
     if (!route.params || !route.params.deviceType) {
       console.log(`deviceType is null`)
       navigation.goBack()
@@ -24,7 +25,7 @@ const Device = () => {
         console.log(`device page error: ${err}`)
         navigation.goBack()
       })
-  }, [])
+  })
 
   return deviceModule
 }
