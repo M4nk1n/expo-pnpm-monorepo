@@ -1,5 +1,6 @@
 export * from './PureWrapper'
 export * from './KeyboardAvoiding'
+export * from './KeyboardDismissWrapper'
 export * from './Suspense'
 export * from './Toast'
 export * from './Base'
