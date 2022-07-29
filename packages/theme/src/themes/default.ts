@@ -1,4 +1,4 @@
-import type { ThemeProps } from '../@types'
+import type { ThemeProps } from '../types'
 
 export const DefaultTheme: ThemeProps = {
   scale: 1,

@@ -1,4 +1,4 @@
-import { ColorValue } from '@types/react-native'
+import type { ColorValue } from 'react-native'
 
 export type ThemeProps = {
   /**

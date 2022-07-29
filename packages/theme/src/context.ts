@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import type { ColorScheme, Themes } from './@types'
+import type { ColorScheme, Themes } from './types'
 
 export interface ThemeContextProps {
   themes: Themes

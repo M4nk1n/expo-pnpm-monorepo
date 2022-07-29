@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import type { ColorScheme, Themes } from './@types'
+import type { ColorScheme, Themes } from './types'
 import { ThemeContext } from './context'
-import { DefaultTheme } from './themes'
+import { DefaultTheme } from './themes/default'
 
 export const ThemeProvider: React.FC = ({ children }) => {
   const [themes, setThemes] = useState<Themes>({ light: DefaultTheme, dark: DefaultTheme })

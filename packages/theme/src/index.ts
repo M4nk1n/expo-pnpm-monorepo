@@ -1,3 +1,3 @@
-export * from './@types/index.d'
+export * from './types'
 export * from './provider'
 export * from './hook'

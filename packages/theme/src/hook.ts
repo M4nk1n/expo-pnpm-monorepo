@@ -1,6 +1,6 @@
 import { DependencyList, useContext, useMemo } from 'react'
 import { StyleSheet, useColorScheme } from 'react-native'
-import type { ColorScheme, ThemeProps, Themes } from './@types'
+import type { ColorScheme, ThemeProps, Themes } from './types'
 import { ThemeContext } from './context'
 
 export const useTheme = () => {
