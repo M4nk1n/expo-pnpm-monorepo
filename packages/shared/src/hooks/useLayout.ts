@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 
-export function useLayout() {
+export const useLayout = () => {
   const [layout, setLayout] = useState({
     x: 0,
     y: 0,

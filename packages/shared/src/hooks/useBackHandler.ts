@@ -7,7 +7,7 @@ import { BackHandler } from 'react-native'
  * ```
  * @param handler subscription，返回 true 可以阻止调用系统返回事件
  */
-export function useBackHandler(handler: () => boolean) {
+export const useBackHandler = (handler: () => boolean) => {
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handler)
 

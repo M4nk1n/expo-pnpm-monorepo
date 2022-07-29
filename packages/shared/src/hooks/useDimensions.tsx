@@ -22,7 +22,7 @@ export const ScreenDimensionsContext = createContext<ScreenDimensionsWithSafeAre
   null as any /* STRICTNESS_MIGRATION */
 )
 
-function getCurrentDimensions(): ScreenDimensions {
+const getCurrentDimensions = (): ScreenDimensions => {
   const { width, height } = Dimensions.get('window')
   return {
     width,
@@ -60,7 +60,7 @@ export const DimensionsProvider: React.FC = ({ children }) => {
 /**
  * Call during render to be notified whenever `screenDimensions` changes
  */
-export function useDimensions() {
+export const useDimensions = () => {
   return useContext(ScreenDimensionsContext)
 }
 

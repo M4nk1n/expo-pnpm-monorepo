@@ -23,7 +23,7 @@ export interface KeyboardProps {
  *  useKeyboard({ onKeyboardShow, onKeyboardHide })
  *
  */
-export const useKeyboard = ({ onKeyboardShow, onKeyboardHide }: KeyboardProps) => {
+export const useKeyboard = ({ onKeyboardShow, onKeyboardHide }: KeyboardProps = {}) => {
   const [keyboardShow, setKeyboardShow] = useState(false)
 
   useEffect(() => {
