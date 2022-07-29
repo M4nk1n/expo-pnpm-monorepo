@@ -1,8 +1,9 @@
 import { useContext } from 'react'
 import { Dict, TranslateOptions } from 'i18n-js/typings/typing'
 
-import type { ScopeOptions } from './@types'
 import { I18nContext } from './context'
+
+export type ScopeOptions = { scope: string }
 
 /**
  * See: {@link: https://www.npmjs.com/package/i18n-js/v/next}
