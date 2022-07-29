@@ -1,59 +1,115 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import type { KeyValuePair } from '@react-native-async-storage/async-storage/src/types'
 
+export type KeyType = string | string[]
+
+interface ReturnType {
+  set: (value: string) => Promise<void>
+  get: () => Promise<string | null>
+  merge: (value: string) => Promise<void>
+  remove: () => Promise<void>
+  getAllKeys: () => Promise<readonly string[]>
+  clear: () => Promise<void>
+}
+
+interface MultReturnType {
+  set: (value: string[]) => Promise<void>
+  get: () => Promise<readonly KeyValuePair[]>
+  merge: (value: string[]) => Promise<void>
+  remove: () => Promise<void>
+  getAllKeys: () => Promise<readonly string[]>
+  clear: () => Promise<void>
+}
+
 /**
  * A hooks-like interface of @react-native-async-storage/async-storage.
  *
- * @param key(optional) The array of key that was used to store the associated value.
+ * @param key(optional) The key that was used to store the associated value.
  *
  * See: {@link https://react-native-async-storage.github.io/async-storage/docs/api/#getitem}
  *
  * Example:
  * ```
- * const userStore = useAsyncStorage(["user"])
- * userStore.set(["Tom"])  // set user with "Tom"
- * userStore.get().then(console.log)  // [["user", "Tom"]]
- * userStore.remove()   // delete user
- *
- * const multiUserStore = useAsyncStorage(["user1", "user2"])
- * multiUserStore.set(["Tom", "Sam"])  // set user with "Tom" & "Sam"
- * multiUserStore.get().then(console.log)  // [["user1", "Tom"], ["user2", "Sam"]]
- * multiUserStore.remove()   // delete user1 & user2
+ * const userStore = useAsyncStorage("user")
+ * userStore.set("Tom")               // set user with "Tom"
+ * userStore.get().then(console.log)  // "Tom"
+ * userStore.remove()                 // delete user
  *
  * const asyncStore = useAsyncStorage()
- * asyncStore.getAllKeys() // ["user", "books", ...]
- * multiUserStore.clear() // clear storage
+ * asyncStore.getAllKeys()  // ["user", "books", ...]
+ * multiUserStore.clear()   // clear storage
  * ```
  */
-const useAsyncStorage = <T extends string[]>(key?: T) => {
-  const set = (value: T): Promise<void> => {
+function useAsyncStorage(key?: string): ReturnType
+
+/**
+ * A hooks-like interface of @react-native-async-storage/async-storage.
+ *
+ * @param key The array of key that was used to store the associated value.
+ *
+ * See: {@link https://react-native-async-storage.github.io/async-storage/docs/api/#multiget}
+ *
+ * Example:
+ * ```
+ * const multiUserStore = useAsyncStorage(["user1", "user2"])
+ * multiUserStore.set(["Tom", "Sam"])       // set user with "Tom" & "Sam"
+ * multiUserStore.get().then(console.log)   // [["user1", "Tom"], ["user2", "Sam"]]
+ * multiUserStore.remove()                  // delete user1 & user2
+ * ```
+ */
+function useAsyncStorage(key: string[]): MultReturnType
+
+/**
+ * A hooks-like interface of @react-native-async-storage/async-storage.
+ *
+ * @param key(optional) The key(or the array of key) that was used to store the associated value.
+ *
+ * See: {@link https://react-native-async-storage.github.io/async-storage/docs/api/#getitem}
+ *
+ * Example:
+ * ```
+ * const userStore = useAsyncStorage("user")
+ * userStore.set("Tom")               // set user with "Tom"
+ * userStore.get().then(console.log)  // "Tom"
+ * userStore.remove()                 // delete user
+ *
+ * const multiUserStore = useAsyncStorage(["user1", "user2"])
+ * multiUserStore.set(["Tom", "Sam"])       // set user with "Tom" & "Sam"
+ * multiUserStore.get().then(console.log)   // [["user1", "Tom"], ["user2", "Sam"]]
+ * multiUserStore.remove()                  // delete user1 & user2
+ *
+ * const asyncStore = useAsyncStorage()
+ * asyncStore.getAllKeys()  // ["user", "books", ...]
+ * multiUserStore.clear()   // clear storage
+ * ```
+ */
+function useAsyncStorage(key?: KeyType): ReturnType | MultReturnType {
+  function set(value: string): Promise<void>
+  function set(value: string[]): Promise<void>
+  function set(value: KeyType): Promise<void> {
     if (!!key) {
-      if (key.length === 1 && value.length > 0) {
-        return AsyncStorage.setItem(key[0], value[0])
-      } else if (key.length > 1 && value.length > 0) {
+      if (typeof key === 'string') {
+        return AsyncStorage.setItem(key, value as string)
+      } else {
         return AsyncStorage.multiSet(
           key.map((k, idx) => [idx < value.length ? k : '', value[idx]]).filter(v => v[0] !== '') as [string, string][]
         )
       }
     }
-
     return Promise.reject('Not implemented')
   }
 
-  const get = (): Promise<readonly KeyValuePair[] | string | null> => {
+  function get(): Promise<string | null>
+  function get(): Promise<readonly KeyValuePair[]>
+  function get(): Promise<string | null> | Promise<readonly KeyValuePair[]> {
     if (!!key) {
-      if (key.length === 1) {
-        return new Promise((resolve, reject) => {
-          AsyncStorage.getItem(key[0])
-            // .then(res => resolve([[key[0], res]]))
-            .then(res => resolve(res))
-            .catch(err => reject(err))
-        })
+      if (typeof key === 'string') {
+        return AsyncStorage.getItem(key)
       } else {
         return AsyncStorage.multiGet(key)
       }
     }
-    return Promise.reject('Not implemented')
+    return Promise.resolve(null)
   }
 
   /**
@@ -62,10 +118,12 @@ const useAsyncStorage = <T extends string[]>(key?: T) => {
    * NOTE: This is not supported by all native implementations.
    * @param value array of <stringified JSON>
    */
-  const merge = (value: T): Promise<void> => {
+  function merge(value: string): Promise<void>
+  function merge(value: string[]): Promise<void>
+  function merge(value: KeyType): Promise<void> {
     if (!!key) {
-      if (key.length === 1 && value.length > 0) {
-        return AsyncStorage.mergeItem?.(key[0], value[0]) ?? Promise.reject('Not implemented')
+      if (typeof key === 'string') {
+        return AsyncStorage.mergeItem?.(key, value as string) ?? Promise.reject('Not implemented')
       } else if (key.length > 1 && value.length > 0) {
         return (
           AsyncStorage.multiMerge?.(
@@ -82,8 +140,8 @@ const useAsyncStorage = <T extends string[]>(key?: T) => {
 
   const remove = (): Promise<void> => {
     if (!!key) {
-      if (key.length === 1) {
-        return AsyncStorage.removeItem(key[0])
+      if (typeof key === 'string') {
+        return AsyncStorage.removeItem(key)
       } else {
         return AsyncStorage.multiRemove(key)
       }
