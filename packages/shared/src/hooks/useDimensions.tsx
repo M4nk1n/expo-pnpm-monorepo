@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react'
 import { Dimensions } from 'react-native'
 import { EdgeInsets, useSafeAreaInsets } from 'react-native-safe-area-context'
 
@@ -35,7 +35,7 @@ const getCurrentDimensions = (): ScreenDimensions => {
   }
 }
 
-export const DimensionsProvider: React.FC = ({ children }) => {
+export const DimensionsProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const safeAreaInsets = useSafeAreaInsets()
   const [dimensions, setDimensions] = useState<ScreenDimensions>(getCurrentDimensions())
 

@@ -1,4 +1,7 @@
 import { useState, useCallback } from 'react'
+import { LayoutChangeEvent } from 'react-native'
+
+type LayoutType = (event: LayoutChangeEvent) => void
 
 export const useLayout = () => {
   const [layout, setLayout] = useState({
@@ -7,7 +10,8 @@ export const useLayout = () => {
     width: 0,
     height: 0,
   })
-  const onLayout = useCallback(e => setLayout(e.nativeEvent.layout), [])
+
+  const onLayout = useCallback<LayoutType>(e => setLayout(e.nativeEvent.layout), [])
 
   return {
     onLayout,

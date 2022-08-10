@@ -55,6 +55,7 @@ export const useAppState = ({ onForeground, onBackground }: AppStateProps) => {
       // AppState.removeEventListener('change', _handleAppStateChange)
       listener.remove()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [appState.current, onForeground, onBackground])
 
   return { appState: appState.current }

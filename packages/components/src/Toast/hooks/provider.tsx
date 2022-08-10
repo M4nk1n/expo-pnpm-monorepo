@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { PropsWithChildren, useRef, useState } from 'react'
 import type { ToastContainerProps, ToastProps } from '../types'
 import { ToastContainer } from '../ui/container'
 import { ToastContainerDefaultProps, ToastContext } from './context'
 
-export const ToastProvider: React.FC<ToastContainerProps> = ({ children, ...props }) => {
+export const ToastProvider: React.FC<PropsWithChildren<ToastContainerProps>> = ({ children, ...props }) => {
   const [toasts, setToasts] = useState<ToastProps[]>([])
 
   /**

@@ -22,7 +22,7 @@ export const useStepper = (maxStep: number): [number, Helpers] => {
 
   const isFirst = useMemo(() => currentStep <= 1, [currentStep])
 
-  const setStep = useCallback(
+  const setStep = useCallback<Dispatch<SetStateAction<number>>>(
     step => {
       // Allow value to be a function so we have the same API as useState
       const newStep = step instanceof Function ? step(currentStep) : step

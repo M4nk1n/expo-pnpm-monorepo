@@ -1,8 +1,9 @@
+import { PropsWithChildren } from 'react'
 import { combineProviders } from '@packages/shared'
 
 import NavigatorProvider from './navigation/NavigatorProvider'
 
-const AppProviders: React.FC = ({ children }) =>
+const AppProviders: React.FC<PropsWithChildren> = ({ children }) =>
   combineProviders(
     [
       // order matters here, be careful!

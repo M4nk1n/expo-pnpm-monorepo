@@ -1,3 +1,4 @@
+import React, { PropsWithChildren } from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { combineProviders, DimensionsProvider } from '@packages/shared'
 import { I18nProvider } from '@packages/i18n'
@@ -7,7 +8,7 @@ import { KeyboardAvoidingViewProvider, SuspenseProvider, ToastProvider } from '@
 import NavigatorProvider from '@app/navigation/NavigatorProvider'
 import AppProvider from '@app/AppProvider'
 
-const AppProviders: React.FC = ({ children }) =>
+const AppProviders: React.FC<PropsWithChildren> = ({ children }) =>
   combineProviders(
     [
       // order matters here, be careful!

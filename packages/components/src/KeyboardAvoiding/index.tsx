@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { PropsWithChildren, useContext, useState } from 'react'
 import { KeyboardAvoidingView as RNKeyboardAvoidingView, Platform } from 'react-native'
 import type { StyleProp, ViewStyle } from 'react-native'
 
@@ -28,7 +28,7 @@ export const KeyboardAvoidingViewContext = React.createContext<KeyboardAvoidingV
   },
 })
 
-export const KeyboardAvoidingViewProvider: React.FC = ({ children }) => {
+export const KeyboardAvoidingViewProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [value, setValue] = useState<KeyboardAvoidingViewProps>({
     isVisible: true,
     isPresentedModally: false,
@@ -40,7 +40,10 @@ export const KeyboardAvoidingViewProvider: React.FC = ({ children }) => {
   )
 }
 
-export const KeyboardAvoidingView: React.FC<{ style?: StyleProp<ViewStyle> }> = ({ children, style }) => {
+export const KeyboardAvoidingView: React.FC<PropsWithChildren<{ style?: StyleProp<ViewStyle> }>> = ({
+  children,
+  style,
+}) => {
   const {
     value: { isVisible },
   } = useContext(KeyboardAvoidingViewContext)

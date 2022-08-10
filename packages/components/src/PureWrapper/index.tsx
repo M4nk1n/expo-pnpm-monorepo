@@ -1,5 +1,5 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 
-export const PureWrapper: React.FC = ({ children }) => {
+export const PureWrapper: React.FC<PropsWithChildren> = ({ children }) => {
   return <>{children}</>
 }
