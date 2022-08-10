@@ -9,10 +9,11 @@
     "pnpm": ">=7"
   },
   "scripts": {
-    "bootstrap": "pnpm install",
+    "bootstrap": "pnpm install && pnpm build:tsc",
     "prepare": "husky install",
     "dev:web": "cd apps/next && pnpm dev",
     "dev:native": "cd apps/expo && pnpm start",
+    "build:tsc": "pnpm -r run build:tsc",
     "clean:cache": "watchman watch-del-all && rm -rf $TMPDIR/metro-* $TMPDIR/haste-*",
     "clean:build": "pnpm clean:cache && find . -maxdepth 3 -type dir -name node_modules -prune -o -name .expo -print -o -name .next -print -o -name dist -print | xargs rm -rf",
     "clean:lib": "pnpm clean:build && rm -rf node_modules && find . -maxdepth 3 -type dir -name node_modules -print | xargs rm -rf",

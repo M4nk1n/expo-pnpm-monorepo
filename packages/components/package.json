@@ -5,7 +5,7 @@
   "type": "module",
   "main": "src",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc --build"
   },
   "dependencies": {},
   "peerDependencies": {

@@ -9,7 +9,7 @@
     "build"
   ],
   "scripts": {
-    "build": "tsc"
+    "build:tsc": "tsc --build"
   },
   "peerDependencies": {
     "react": ">=17"
