@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "Expo Workspace with pnpm",
-  "packageManager": "pnpm@7.6.0",
+  "packageManager": "pnpm@7.9.0",
   "engines": {
     "node": ">=16.9.0",
     "pnpm": ">=7"
@@ -27,6 +27,8 @@
     "@babel/preset-env": "^7.18.2",
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "@types/react": "~18.0.14",
+    "@types/react-native": "~0.69.4",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
     "eslint": "^8.15.0",
@@ -46,17 +48,27 @@
     "typescript": "^4.6.4"
   },
   "pnpm": {
+    "overrides": {
+      "@expo/webpack-config@0.17.0>@babel/core": "^7.9.0",
+      "@expo/webpack-config@0.17.0>@expo/config": "~7.0.0",
+      "@expo/webpack-config@0.17.0>webpack": "^4 || ^5",
+      "expo-pwa@0.0.122>@expo/config": "~7.0.0"
+    },
     "peerDependencyRules": {
       "ignoreMissing": [
         "@babel/core",
         "@babel/preset-env",
         "eslint",
+        "expo-modules-autolinking",
         "react",
         "typescript"
       ],
       "allowAny": [
         "next",
-        "react-native"
+        "react",
+        "react-native",
+        "react-native-web",
+        "webpack"
       ]
     }
   }

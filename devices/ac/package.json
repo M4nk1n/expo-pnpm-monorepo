@@ -11,9 +11,7 @@
   "devDependencies": {
     "@packages/shared": "workspace:*",
     "@packages/navigation": "workspace:*",
-    "@packages/components": "workspace:*",
-    "@types/react": "^17.0.39",
-    "@types/react-native": "^0.67.7"
+    "@packages/components": "workspace:*"
   },
   "peerDependencies": {
     "@packages/shared": "workspace:*",
@@ -24,7 +22,6 @@
     "mobx": "^6.6.0",
     "mobx-react-lite": "^3.4.0",
     "react": ">=17",
-    "react-dom": ">=17",
     "react-native": ">=0.68.2",
     "react-native-safe-area-context": ">=4.3.1",
     "react-native-screens": ">=3.11.1"

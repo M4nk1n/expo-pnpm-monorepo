@@ -17,18 +17,18 @@ config.watchFolders = [workspaceRoot]
 //   path.resolve(projectRoot, 'node_modules'),
 //   path.resolve(workspaceRoot, 'node_modules'),   // needed for npm workspaces
 // ]
-config.resolver.resolveRequest = (context, realModuleName, platform, moduleName) => {
-  let module = realModuleName
+config.resolver.resolveRequest = (context, moduleName, platform) => {
+  let newModuleName = moduleName
   /**
    * 各 packages 的 paths alias 都需要在这里做相应的 replace
    * See: https://github.com/facebook/metro/issues/542#issuecomment-1059821963
    */
-  if (realModuleName.startsWith('@app') || moduleName.startsWith('@app')) {
-    // For Metro < 0.68
-    module = module.replace('@app/', '@packages/app/src/')
-    // console.log("resolveRequest -> replace: ", moduleName, realModuleName, module)
+  if (!!moduleName && moduleName.startsWith('@app')) {
+    // For Metro >=0.68
+    newModuleName = newModuleName.replace('@app/', '@packages/app/src/')
+    // console.log("resolveRequest -> replace: ", moduleName, newModuleName)
   }
-  return require('metro-resolver').resolve({ ...context, resolveRequest: null }, module, platform)
+  return require('metro-resolver').resolve(context, newModuleName, platform)
 }
 
 // 3. getTransformOptions

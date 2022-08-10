@@ -17,7 +17,6 @@
     "@react-navigation/native-stack": "^6",
     "@react-navigation/stack": "^6",
     "react": ">=17",
-    "react-dom": ">=17",
     "react-native": ">=0.68.2",
     "react-native-screens": ">=3.11.1"
   }
