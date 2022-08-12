@@ -1,0 +1,23 @@
+{
+  "name": "@shared/navigation",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "build/index",
+  "types": "build/index",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build:tsc": "tsc --build"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@react-navigation/native": "^6",
+    "@react-navigation/native-stack": "^6",
+    "@react-navigation/stack": "^6",
+    "react": ">=17",
+    "react-native": ">=0.68.2",
+    "react-native-screens": ">=3.11.1"
+  }
+}

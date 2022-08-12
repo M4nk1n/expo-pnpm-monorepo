@@ -1,0 +1,14 @@
+{
+  "name": "@packages/light",
+  "version": "0.0.1",
+  "description": "示例设备 - 灯",
+  "private": true,
+  "main": "src",
+  "scripts": {
+    "typecheck": "tsc"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=17"
+  }
+}

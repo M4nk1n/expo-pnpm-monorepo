@@ -8,13 +8,14 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@packages/components": "workspace:*",
-    "@packages/i18n": "workspace:*",
-    "@packages/navigation": "workspace:*",
-    "@packages/shared": "workspace:*",
-    "@packages/theme": "workspace:*",
-    "@devices/ac": "workspace:*",
-    "@devices/light": "workspace:*",
+    "@shared/components": "workspace:*",
+    "@shared/i18n": "workspace:*",
+    "@shared/navigation": "workspace:*",
+    "@shared/hooks": "workspace:*",
+    "@shared/utils": "workspace:*",
+    "@shared/theme": "workspace:*",
+    "@packages/ac": "workspace:*",
+    "@packages/light": "workspace:*",
     "mobx": "^6.6.0",
     "mobx-react-lite": "^3.4.0"
   },

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { Themes } from '@packages/theme'
+import { Themes } from '@shared/theme'
 
 import light from './light.json'
 import dark from './dark.json'

@@ -1,10 +1,10 @@
 import React from 'react'
 import * as SplashScreen from 'expo-splash-screen'
 
-import { useBoolean, useEffectOnce, useIsomorphicLayoutEffect } from '@packages/shared'
-import { useI18n } from '@packages/i18n'
-import { useTheme } from '@packages/theme'
-import { PureWrapper } from '@packages/components'
+import { useBoolean, useEffectOnce, useIsomorphicLayoutEffect } from '@shared/hooks'
+import { useI18n } from '@shared/i18n'
+import { useTheme } from '@shared/theme'
+import { PureWrapper } from '@shared/components'
 
 import { themes } from '@app/themes'
 import { LanguageScope } from '@app/locale'

@@ -5,8 +5,8 @@
 import React, { useState } from 'react'
 import { View } from 'react-native'
 
-import { useEffectOnce } from '@packages/shared'
-import { useNavigation, useRoute, RoutePageProp } from '@packages/navigation'
+import { useEffectOnce } from '@shared/hooks'
+import { useNavigation, useRoute, RoutePageProp } from '@shared/navigation'
 
 const Device = () => {
   const navigation = useNavigation()
@@ -19,7 +19,7 @@ const Device = () => {
       navigation.goBack()
       return
     }
-    import('@devices/' + route.params.deviceType + '/src/index')
+    import('@packages/' + route.params.deviceType + '/src/index')
       .then(({ default: DeviceModule }) => setDeviceModule(<DeviceModule />))
       .catch(err => {
         console.log(`device page error: ${err}`)

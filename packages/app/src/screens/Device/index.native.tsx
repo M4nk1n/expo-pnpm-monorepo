@@ -5,12 +5,12 @@
  */
 import React, { lazy } from 'react'
 
-import { useRoute, RoutePageProp } from '@packages/navigation'
+import { useRoute, RoutePageProp } from '@shared/navigation'
 
 const deviceArray = {
-  undefined: lazy(() => import('@devices/ac')),
-  ac: lazy(() => import('@devices/ac')),
-  light: lazy(() => import('@devices/light')),
+  undefined: lazy(() => import('@packages/ac')),
+  ac: lazy(() => import('@packages/ac')),
+  light: lazy(() => import('@packages/light')),
 }
 
 const Device = () => {

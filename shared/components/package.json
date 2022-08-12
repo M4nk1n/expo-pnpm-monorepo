@@ -1,0 +1,15 @@
+{
+  "name": "@shared/components",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "src",
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=17",
+    "react-native": ">=0.68.2"
+  }
+}

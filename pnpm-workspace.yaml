@@ -1,9 +1,9 @@
 packages:
   # Expo, Next.js, etc. in apps/
   - 'apps/**'
+  # Shared Codes
+  - 'shared/**'
   # Sources
   - 'packages/**'
-  # device pages
-  - 'devices/**'
   # packages patches
   - '!patches/**'

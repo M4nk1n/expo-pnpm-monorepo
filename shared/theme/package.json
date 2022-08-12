@@ -1,0 +1,17 @@
+{
+  "name": "@shared/theme",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "build/index",
+  "types": "build/index",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build:tsc": "tsc --build"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  }
+}
