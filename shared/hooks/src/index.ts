@@ -1,4 +1,4 @@
-// Shared from: https://usehooks-ts.com/react-hook/use-counter
+// Shared from: https://usehooks-ts.com/
 
 export * from './useBoolean'
 export * from './useCounter'
@@ -9,6 +9,7 @@ export * from './useCountdown'
 export * from './useEffectOnce'
 export * from './useEffectCleaner'
 export * from './useStepper'
+export * from './useFetch'
 
 // Some from https://github.com/react-native-community/hooks
 

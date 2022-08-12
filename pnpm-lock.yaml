@@ -195,7 +195,10 @@ importers:
     specifiers: {}
 
   shared/hooks:
-    specifiers: {}
+    specifiers:
+      '@shared/utils': workspace:*
+    dependencies:
+      '@shared/utils': link:../utils
 
   shared/i18n:
     specifiers:
