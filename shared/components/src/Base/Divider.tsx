@@ -9,14 +9,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  horizontalInnerStyle: {
-    height: 1,
-    borderBottomWidth: 1,
-  },
-  verticalInnerStyle: {
-    width: 1,
-    borderLeftWidth: 1,
-  },
 })
 
 const Divider: React.FC<DividerProps> = ({ horizontal = false, color = '#eee', width, height, style, ...prop }) => {
@@ -28,8 +20,8 @@ const Divider: React.FC<DividerProps> = ({ horizontal = false, color = '#eee', w
       <View
         style={
           horizontal
-            ? [styles.horizontalInnerStyle, { borderColor: color, width }, !width ? { flex: 1 } : {}]
-            : [styles.verticalInnerStyle, { borderColor: color, height }, !height ? { flex: 1 } : {}]
+            ? [{ backgroundColor: color, width, height: 1 }, !width ? { flex: 1 } : {}]
+            : [{ backgroundColor: color, width: 1, height }, !height ? { flex: 1 } : {}]
         }
       />
     </View>
