@@ -8,6 +8,7 @@ import { useI18n } from '@shared/i18n'
 import { useStyles } from '@shared/theme'
 import { useNavigation, NavigateProp } from '@shared/navigation'
 import { useToast } from '@shared/components'
+import type { TermsTypeStatic } from '@packages/terms'
 
 import { LanguageScope } from '@app/locale'
 import Store from '@app/store'
@@ -64,6 +65,10 @@ const Home = () => {
     }
   }
 
+  const checkTerms = (type: TermsTypeStatic) => {
+    navigation.navigate('Terms', { screen: type })
+  }
+
   const styles = useStyles(theme => ({
     container: {
       flex: 1,
@@ -94,6 +99,10 @@ const Home = () => {
 
       <Text>===================================</Text>
       <Button onPress={setOtherLocale} title={`Click to change language`} />
+
+      <Text>===================================</Text>
+      <Button onPress={() => checkTerms('Agreement')} title={`Click to Term > Agreement`} />
+      <Button onPress={() => checkTerms('Privacy')} title={`Click to Term > Privacy`} />
 
       <Text>==========================================</Text>
       <Button onPress={dismissKeyboard} title='Click to dismiss keyboard' />

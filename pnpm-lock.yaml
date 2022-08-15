@@ -168,6 +168,7 @@ importers:
     specifiers:
       '@packages/ac': workspace:*
       '@packages/light': workspace:*
+      '@packages/terms': workspace:*
       '@shared/components': workspace:*
       '@shared/hooks': workspace:*
       '@shared/i18n': workspace:*
@@ -179,6 +180,7 @@ importers:
     dependencies:
       '@packages/ac': link:../ac
       '@packages/light': link:../light
+      '@packages/terms': link:../terms
       '@shared/components': link:../../shared/components
       '@shared/hooks': link:../../shared/hooks
       '@shared/i18n': link:../../shared/i18n
@@ -190,6 +192,22 @@ importers:
 
   packages/light:
     specifiers: {}
+
+  packages/terms:
+    specifiers:
+      '@shared/components': workspace:*
+      '@shared/hooks': workspace:*
+      '@shared/i18n': workspace:*
+      '@shared/navigation': workspace:*
+      '@shared/theme': workspace:*
+      '@shared/utils': workspace:*
+    dependencies:
+      '@shared/components': link:../../shared/components
+      '@shared/hooks': link:../../shared/hooks
+      '@shared/i18n': link:../../shared/i18n
+      '@shared/navigation': link:../../shared/navigation
+      '@shared/theme': link:../../shared/theme
+      '@shared/utils': link:../../shared/utils
 
   shared/components:
     specifiers: {}

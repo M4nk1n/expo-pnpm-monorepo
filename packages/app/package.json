@@ -9,13 +9,14 @@
   },
   "dependencies": {
     "@shared/components": "workspace:*",
+    "@shared/hooks": "workspace:*",
     "@shared/i18n": "workspace:*",
     "@shared/navigation": "workspace:*",
-    "@shared/hooks": "workspace:*",
-    "@shared/utils": "workspace:*",
     "@shared/theme": "workspace:*",
+    "@shared/utils": "workspace:*",
     "@packages/ac": "workspace:*",
     "@packages/light": "workspace:*",
+    "@packages/terms": "workspace:*",
     "mobx": "^6.6.0",
     "mobx-react-lite": "^3.4.0"
   },
