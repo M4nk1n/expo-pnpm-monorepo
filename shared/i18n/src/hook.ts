@@ -65,6 +65,27 @@ export const useI18n = () => {
   }
 
   /**
+   * Check translation store if exist.
+   * like this:
+   *
+   * ```
+   * const { checkStore } = useI18n()
+   * try {
+   *   checkStore({ scope: "main" })
+   *   console.log("i18n store here.")
+   * } catch {
+   *   console.log("i18n store missing.")
+   * }
+   * ```
+   *
+   * @param scope store 域
+   * @param options TranslateOptions(Do not override `missingBehavior`)
+   */
+  const checkStore = (scope: ScopeOptions, options?: TranslateOptions) => {
+    i18n.current.t(scope.scope, { missingBehavior: 'error', ...options })
+  }
+
+  /**
    * To translate messages, you have to use the `I18n#translate`, or its `I18n#t` alias.
    *
    * Also see: {@link i18n.current.translate}
@@ -84,7 +105,7 @@ export const useI18n = () => {
    * ```
    *
    * @param tag
-   * @param options store域 / TranslateOptions
+   * @param options store 域 / TranslateOptions
    * @returns
    */
   const t = (tag: string, options?: ScopeOptions | TranslateOptions) => {
@@ -97,5 +118,5 @@ export const useI18n = () => {
 
   const strftime = i18n.current.strftime
 
-  return { i18n: i18n.current, setDefaultLocale, setLocale, store, t, l, toTime, strftime }
+  return { i18n: i18n.current, setDefaultLocale, setLocale, store, checkStore, t, l, toTime, strftime }
 }
