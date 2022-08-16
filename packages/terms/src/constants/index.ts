@@ -2,6 +2,9 @@ const Constants = {}
 
 export default Constants
 
-export const TermsType = ['Agreement', 'Privacy'] as const
+export const ScreenList = {
+  Agreement: 'Agreement',
+  Privacy: 'Privacy',
+}
 
-export type TermsTypeStatic = typeof TermsType[number]
+export type ScreenListStatic = keyof typeof ScreenList
