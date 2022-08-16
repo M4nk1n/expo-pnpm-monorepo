@@ -61,12 +61,12 @@ const Privacy = () => {
       <StatusBar style={currentColorScheme} />
 
       <VStack style={styles.container}>
-        <Text style={styles.title}>隐私政策</Text>
+        <Text style={styles.title}>{t('PrivacyStatement', LanguageScope)}</Text>
         <Text style={styles.date}>更新日期：2000年1月1日</Text>
         <Text>{'\n'}</Text>
 
-        <Text style={styles.subTitle}>小标题</Text>
-        <Text style={styles.content}>正文内容</Text>
+        <Text style={styles.subTitle}>{t('SubTitle', LanguageScope)}</Text>
+        <Text style={styles.content}>{t('Content', LanguageScope)}</Text>
         <Text>{'\n'}</Text>
       </VStack>
     </ScrollView>

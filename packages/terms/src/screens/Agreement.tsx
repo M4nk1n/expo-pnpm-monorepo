@@ -56,10 +56,10 @@ const Agreement = () => {
       <StatusBar style={currentColorScheme} />
 
       <VStack style={styles.container}>
-        <Text style={styles.title}>用户许可协议</Text>
+        <Text style={styles.title}>{t('ServicesAgreement', LanguageScope)}</Text>
         <Text style={styles.date}>最近更新日期：2000年1月1日</Text>
         <Text>{'\n'}</Text>
-        <Text style={styles.content}>XXXXXX</Text>
+        <Text style={styles.content}>{t('Content', LanguageScope)}</Text>
         <Text>{'\n'}</Text>
       </VStack>
     </ScrollView>
