@@ -11,8 +11,8 @@
   "scripts": {
     "build:tsc": "tsc --build"
   },
-  "dependencies": {},
   "peerDependencies": {
+    "@react-navigation/drawer": "^6",
     "@react-navigation/native": "^6",
     "@react-navigation/native-stack": "^6",
     "@react-navigation/stack": "^6",
