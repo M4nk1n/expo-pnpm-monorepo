@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base",
+  "compilerOptions": {
+    "composite": true, // 用于帮助 TypeScript 快速确定引用工程的输出文件位置
+    "outDir": "build",
+    "rootDir": "src"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build"],
+  "compileOnSave": false
+}

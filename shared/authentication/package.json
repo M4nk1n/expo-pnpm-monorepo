@@ -1,0 +1,20 @@
+{
+  "name": "@shared/authentication",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "build/index",
+  "types": "build/index",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build:tsc": "rm -rf build tsconfig.tsbuildinfo && tsc --build"
+  },
+  "dependencies": {
+    "@shared/storage": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  }
+}
