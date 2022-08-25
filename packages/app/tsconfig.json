@@ -2,9 +2,7 @@
   "extends": "../../tsconfig.base",
   "compilerOptions": {
     "composite": true, // 用于帮助 TypeScript 快速确定引用工程的输出文件位置
-    "declaration": true,
     "outDir": "dist",
-    "rootDir": "src",
     "baseUrl": "src",
     "paths": {
       "@app/*": ["*"]
@@ -12,7 +10,7 @@
     // https://mobx.js.org/installation.html#use-spec-compliant-transpilation-for-class-properties
     "useDefineForClassFields": true
   },
-  "include": ["src/**/*", "src/**/*.json"],
+  "include": ["src/**/*", "src/**/*.json", "package.json"],
   "exclude": ["node_modules", "dist"],
   "compileOnSave": false
 }

@@ -9,10 +9,10 @@
     "build"
   ],
   "scripts": {
-    "build:tsc": "tsc --build"
+    "build:tsc": "rm -rf build tsconfig.tsbuildinfo && tsc --build"
   },
   "dependencies": {
-    "i18n-js": "^4"
+    "i18n-js": "^4.0.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.182"

@@ -9,7 +9,7 @@
     "build"
   ],
   "scripts": {
-    "build:tsc": "tsc --build"
+    "build:tsc": "rm -rf build tsconfig.tsbuildinfo && tsc --build"
   },
   "dependencies": {
     "@shared/utils": "workspace:*"

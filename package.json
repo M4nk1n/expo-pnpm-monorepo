@@ -3,21 +3,20 @@
   "version": "0.0.1",
   "private": true,
   "description": "Expo Workspace with pnpm",
-  "packageManager": "pnpm@7.9.0",
+  "packageManager": "pnpm@7.9.4",
   "engines": {
     "node": ">=16.9.0",
-    "pnpm": ">=7"
+    "pnpm": ">=7.4.0"
   },
   "scripts": {
     "bootstrap": "pnpm install && pnpm build:tsc",
     "prepare": "husky install",
-    "dev:web": "cd apps/next && pnpm dev",
-    "dev:native": "cd apps/expo && pnpm start",
     "build:tsc": "pnpm -r run build:tsc",
-    "clean:tsc": "find . -maxdepth 3 -type dir -name node_modules -prune -o -name build -print -o -name tsconfig.tsbuildinfo -print | xargs rm -rf",
+    "dev:native": "pnpm --filter @apps/expo start",
+    "dev:web": "pnpm --filter @apps/next dev",
     "clean:cache": "watchman watch-del-all && rm -rf $TMPDIR/metro-* $TMPDIR/haste-*",
     "clean:build": "pnpm clean:cache && find . -maxdepth 3 -type dir -name node_modules -prune -o -name .expo -print -o -name .next -print -o -name dist -print | xargs rm -rf",
-    "clean:lib": "pnpm clean:tsc && pnpm clean:build && rm -rf node_modules && find . -maxdepth 3 -type dir -name node_modules -print | xargs rm -rf",
+    "clean:lib": "pnpm clean:build && rm -rf node_modules && find . -maxdepth 3 -type dir -name node_modules -print | xargs rm -rf",
     "format": "pretty-quick --staged && lint-staged",
     "lint:eslint": "eslint --cache --max-warnings 0 \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",

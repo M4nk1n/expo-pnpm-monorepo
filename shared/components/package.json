@@ -5,9 +5,8 @@
   "type": "module",
   "main": "src",
   "scripts": {
-    "build": "tsc --build"
+    "build": "rm -rf build tsconfig.tsbuildinfo && tsc --build"
   },
-  "dependencies": {},
   "peerDependencies": {
     "react": ">=17",
     "react-native": ">=0.68.2"

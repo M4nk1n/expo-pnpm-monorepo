@@ -7,7 +7,7 @@
   "scripts": {
     "typecheck": "tsc"
   },
-  "dependencies": {
+  "devDependencies": {
     "@shared/components": "workspace:*",
     "@shared/hooks": "workspace:*",
     "@shared/i18n": "workspace:*",
@@ -16,6 +16,12 @@
     "@shared/utils": "workspace:*"
   },
   "peerDependencies": {
+    "@shared/components": "workspace:*",
+    "@shared/hooks": "workspace:*",
+    "@shared/i18n": "workspace:*",
+    "@shared/navigation": "workspace:*",
+    "@shared/theme": "workspace:*",
+    "@shared/utils": "workspace:*",
     "expo": ">=45.0.0",
     "expo-status-bar": ">=1.3.0",
     "react": ">=17",

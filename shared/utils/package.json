@@ -9,9 +9,8 @@
     "build"
   ],
   "scripts": {
-    "build:tsc": "tsc --build"
+    "build:tsc": "rm -rf build tsconfig.tsbuildinfo && tsc --build"
   },
-  "dependencies": {},
   "peerDependencies": {
     "react": ">=17"
   }
