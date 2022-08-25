@@ -3,7 +3,6 @@
 
 const parseJSON = (response: Response) => {
   const json = response.json()
-  console.log('request response', json)
   return json
 }
 
@@ -25,8 +24,7 @@ export const BaseRequest = async (
   url: string,
   options?: RequestInit
 ): Promise<{ success: boolean; data?: any; error?: any }> => {
-  console.log('request url', url)
-  console.log('request options', options)
+  console.log('request', url, options)
   return fetch(url, options)
     .then(checkStatus)
     .then(parseJSON)
