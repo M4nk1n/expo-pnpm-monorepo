@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 
 import { useBoolean, useEffectOnce } from '@shared/hooks'
 import { useI18n } from '@shared/i18n'
@@ -8,7 +8,7 @@ import { LanguageScope } from './locale'
 import en from './locale/languages/enUS.json'
 import cn from './locale/languages/zhCN.json'
 
-const AppProvider: React.FC = props => {
+const AppProvider: React.FC<PropsWithChildren> = props => {
   const [inited, { setTrue }] = useBoolean(false)
   const { store: i18nStore, checkStore: checkI18nStore } = useI18n()
 

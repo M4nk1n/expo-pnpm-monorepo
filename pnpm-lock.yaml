@@ -177,6 +177,7 @@ importers:
       '@packages/ac': workspace:*
       '@packages/light': workspace:*
       '@packages/terms': workspace:*
+      '@shared/authentication': workspace:*
       '@shared/components': workspace:*
       '@shared/hooks': workspace:*
       '@shared/i18n': workspace:*
@@ -189,6 +190,7 @@ importers:
       '@packages/ac': link:../ac
       '@packages/light': link:../light
       '@packages/terms': link:../terms
+      '@shared/authentication': link:../../shared/authentication
       '@shared/components': link:../../shared/components
       '@shared/hooks': link:../../shared/hooks
       '@shared/i18n': link:../../shared/i18n

@@ -6,13 +6,13 @@ import { ScreenList } from '../constants'
 import Agreement from '../screens/Agreement'
 import Privacy from '../screens/Privacy'
 
-export default function NavigatorProvider() {
-  return (
-    <Stack.Navigator>
-      <Stack.Group screenOptions={{ headerShown: false }}>
-        <Stack.Screen name={ScreenList.Agreement} component={Agreement} options={{ title: 'Services Agreement' }} />
-        <Stack.Screen name={ScreenList.Privacy} component={Privacy} options={{ title: 'Privacy Statement' }} />
-      </Stack.Group>
-    </Stack.Navigator>
-  )
-}
+const NavigatorProvider = () => (
+  <Stack.Navigator>
+    <Stack.Group screenOptions={{ headerShown: false }}>
+      <Stack.Screen name={ScreenList.Agreement} component={Agreement} options={{ title: 'Services Agreement' }} />
+      <Stack.Screen name={ScreenList.Privacy} component={Privacy} options={{ title: 'Privacy Statement' }} />
+    </Stack.Group>
+  </Stack.Navigator>
+)
+
+export default NavigatorProvider

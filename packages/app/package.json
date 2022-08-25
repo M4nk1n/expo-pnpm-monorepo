@@ -8,6 +8,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@shared/authentication": "workspace:*",
     "@shared/components": "workspace:*",
     "@shared/hooks": "workspace:*",
     "@shared/i18n": "workspace:*",

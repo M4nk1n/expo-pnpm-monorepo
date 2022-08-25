@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import * as SplashScreen from 'expo-splash-screen'
 
 import { useBoolean, useEffectOnce, useIsomorphicLayoutEffect } from '@shared/hooks'
@@ -17,7 +17,7 @@ SplashScreen.preventAutoHideAsync().catch(err => {
   console.warn('SplashScreen.preventAutoHideAsync error', err)
 })
 
-const AppProvider: React.FC = props => {
+const AppProvider: React.FC<PropsWithChildren> = props => {
   const [isAppReady, { setTrue: setAppIsReady }] = useBoolean(false)
   const { setDefaultLocale, setLocale, store: i18nStore } = useI18n()
   const { initThemes } = useTheme()

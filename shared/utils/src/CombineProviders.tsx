@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 
-type ProviderList = Array<React.FC | React.ComponentClass<PropsWithChildren>>
+type ProviderList = Array<React.FC<PropsWithChildren> | React.ComponentClass<PropsWithChildren>>
 
 /**
  * This function can takes a list of Providers and returns

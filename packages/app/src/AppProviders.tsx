@@ -5,9 +5,10 @@ import { CombineProviders } from '@shared/utils'
 import { I18nProvider } from '@shared/i18n'
 import { ThemeProvider } from '@shared/theme'
 import { KeyboardAvoidingViewProvider, SuspenseProvider, ToastProvider } from '@shared/components'
+import { AuthenticationProvider } from '@shared/authentication'
 
-import NavigatorProvider from '@app/navigation/NavigatorProvider'
-import AppProvider from '@app/AppProvider'
+import AppProvider from './AppProvider'
+import NavigatorProvider from './navigation'
 
 const AppProviders: React.FC<PropsWithChildren> = ({ children }) =>
   CombineProviders(
@@ -15,12 +16,13 @@ const AppProviders: React.FC<PropsWithChildren> = ({ children }) =>
       // order matters here, be careful!
       // if Provider A is using another Provider B, then A needs to appear below B.
       // (即外层组件放上面)
+      I18nProvider,
+      ThemeProvider,
+      AuthenticationProvider,
       SafeAreaProvider,
       DimensionsProvider, // uses: SafeAreaProvider
       SuspenseProvider,
       KeyboardAvoidingViewProvider,
-      I18nProvider,
-      ThemeProvider,
       ToastProvider,
       AppProvider, // uses: GizSDKProvider
       NavigatorProvider,
