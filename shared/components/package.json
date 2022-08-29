@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "main": "src",
+  "react-native": "src/index",
+  "source": "src/index",
+  "main": "src/index",
   "scripts": {
     "build": "rm -rf build tsconfig.tsbuildinfo && tsc --build"
   },
