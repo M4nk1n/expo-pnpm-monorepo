@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { CombineProviders } from '@shared/utils'
 
-import NavigatorProvider from './navigation/NavigatorProvider'
+import NavigatorProvider from './navigation'
 
 const AppProviders: React.FC<PropsWithChildren> = ({ children }) =>
   CombineProviders(

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
-import { useNavigation, NavigateProp } from '@shared/navigation'
+import { useNavigation } from '@shared/navigation'
+
+import { NavigationProps } from '../../navigation/types'
 
 const styles = StyleSheet.create({
   container: {
@@ -12,7 +14,7 @@ const styles = StyleSheet.create({
 })
 
 const Home = (): JSX.Element => {
-  const navigation = useNavigation<NavigateProp>()
+  const navigation = useNavigation<NavigationProps<'DeviceHome'>>()
 
   useEffect(() => {
     console.log('device/ac init.')
