@@ -1,13 +1,16 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createNavigationContainerRef } from '@react-navigation/native'
+import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack'
 import { createDrawerNavigator } from '@react-navigation/drawer'
-
-export const createStackNavigator = createNativeStackNavigator
-
-export const Stack = createNativeStackNavigator()
-export const Drawer = createDrawerNavigator()
 
 export * from '@react-navigation/native'
 export * from '@react-navigation/native-stack'
 export * from '@react-navigation/drawer'
 
-export * from './types'
+const createStackNavigator = createNativeStackNavigator
+const StackScreenProps = NativeStackScreenProps
+
+const NavigationRef = createNavigationContainerRef()
+const Stack = createStackNavigator()
+const Drawer = createDrawerNavigator()
+
+export { createStackNavigator, StackScreenProps, NavigationRef, Stack, Drawer }

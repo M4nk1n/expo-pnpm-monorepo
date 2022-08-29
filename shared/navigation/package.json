@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "react-native": "src/index",
+  "source": "src/index",
   "main": "build/index",
   "types": "build/index",
   "files": [
