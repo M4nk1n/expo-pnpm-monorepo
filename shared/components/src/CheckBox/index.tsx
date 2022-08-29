@@ -7,7 +7,7 @@ import iconChecked from './assets/opt_sel.png'
 type CheckBoxProps = {
   size: number
   checked: boolean
-  onPress: () => void
+  onPress?: () => void
   disabled?: boolean
 }
 
