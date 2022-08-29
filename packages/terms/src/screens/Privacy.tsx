@@ -1,24 +1,16 @@
 import React from 'react'
 import { ScrollView, Text } from 'react-native'
+import { StatusBar } from 'expo-status-bar'
 
-import { useDimensions, useEffectOnce } from '@shared/hooks'
-import { useNavigation } from '@shared/navigation'
+import { useDimensions } from '@shared/hooks'
 import { useStyles, useTheme } from '@shared/theme'
 import { useI18n } from '@shared/i18n'
 import { VStack } from '@shared/components'
 
 import { LanguageScope } from '../locale'
-import { StatusBar } from 'expo-status-bar'
 
 const Privacy = () => {
-  const navigation = useNavigation()
   const { t } = useI18n()
-
-  useEffectOnce(() => {
-    navigation.setOptions({
-      title: t('PrivacyStatement', LanguageScope),
-    })
-  })
 
   const { safeAreaInsets } = useDimensions()
   const styles = useStyles(theme => ({
