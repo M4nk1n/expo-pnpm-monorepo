@@ -6,17 +6,17 @@ import { StatusBar } from 'expo-status-bar'
 import { useAppState, useDimensions, useKeyboard } from '@shared/hooks'
 import { useI18n } from '@shared/i18n'
 import { useStyles } from '@shared/theme'
-import { useNavigation, NavigateProp } from '@shared/navigation'
+import { useNavigation } from '@shared/navigation'
 import { useToast } from '@shared/components'
 
-import type { ScreenListStatic } from '@packages/terms'
 import { ScreenList } from '@packages/terms'
 
 import { LanguageScope } from '@app/locale'
 import Store from '@app/store'
+import { NavigationProps } from '@app/navigation/types'
 
 const Home = () => {
-  const navigation = useNavigation<NavigateProp>()
+  const navigation = useNavigation<NavigationProps<'Home'>>()
   const localStore = useLocalObservable(() => Store.app)
   const toast = useToast()
   const dims = useDimensions()
@@ -46,7 +46,7 @@ const Home = () => {
   const { dismiss: keyboardDismiss } = useKeyboard({ onKeyboardShow, onKeyboardHide })
 
   const click = (deviceType: string) => {
-    navigation.navigate('Device', { deviceType })
+    navigation.navigate('Device', { deviceType, did: 'did' })
   }
 
   const testToast = (message: string) => {
@@ -67,7 +67,7 @@ const Home = () => {
     }
   }
 
-  const checkTerms = (type: ScreenListStatic) => {
+  const checkTerms = (type: ScreenList) => {
     navigation.navigate('Terms', { screen: type })
   }
 
@@ -103,11 +103,8 @@ const Home = () => {
       <Button onPress={setOtherLocale} title={`Click to change language`} />
 
       <Text>===================================</Text>
-      <Button
-        onPress={() => checkTerms(ScreenList.Agreement as ScreenListStatic)}
-        title={`Click to Term > Agreement`}
-      />
-      <Button onPress={() => checkTerms(ScreenList.Privacy as ScreenListStatic)} title={`Click to Term > Privacy`} />
+      <Button onPress={() => checkTerms(ScreenList.Agreement)} title={`Click to Term > Agreement`} />
+      <Button onPress={() => checkTerms(ScreenList.Privacy)} title={`Click to Term > Privacy`} />
 
       <Text>==========================================</Text>
       <Button onPress={dismissKeyboard} title='Click to dismiss keyboard' />

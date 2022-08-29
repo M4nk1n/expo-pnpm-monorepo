@@ -2,32 +2,41 @@
  * For: Nexh.js
  * React Native 不支持带参数的 dynamic import，所以直接分开写
  */
-import React, { useState } from 'react'
-import { View } from 'react-native'
+import React, { PropsWithChildren, useState } from 'react'
 
+import { useNavigation, useRoute } from '@shared/navigation'
 import { useEffectOnce } from '@shared/hooks'
-import { useNavigation, useRoute, RoutePageProp } from '@shared/navigation'
+
+// import type { DeviceScreenProps } from '@devices/main'
+interface DeviceScreenProps {
+  type: string
+  did: string
+}
+
+import { ScreenProps } from '@app/navigation/types'
 
 const Device = () => {
   const navigation = useNavigation()
-  const route = useRoute<RoutePageProp<DevicePageProps>>()
-  const [deviceModule, setDeviceModule] = useState<JSX.Element>(<View />)
+  const route = useRoute<ScreenProps<'Device'>>()
+  const { deviceType, did } = route.params
+  const [deviceModule, setDeviceModule] = useState<React.FC<PropsWithChildren<DeviceScreenProps>>>()
 
   useEffectOnce(() => {
-    if (!route.params || !route.params.deviceType) {
-      console.log(`deviceType is null`)
+    if (!deviceType || !did) {
+      console.log(`deviceType/did is null`)
       navigation.goBack()
       return
     }
-    import('@packages/' + route.params.deviceType + '/src/index')
-      .then(({ default: DeviceModule }) => setDeviceModule(<DeviceModule />))
+
+    import('@devices/' + deviceType)
+      .then(({ default: DeviceModule }) => setDeviceModule(() => <DeviceModule type={deviceType} did={did} />))
       .catch(err => {
         console.log(`device page error: ${err}`)
         navigation.goBack()
       })
   })
 
-  return deviceModule
+  return <>{deviceModule}</>
 }
 
 export default Device

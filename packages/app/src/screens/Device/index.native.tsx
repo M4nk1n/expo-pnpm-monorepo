@@ -3,21 +3,30 @@
  * React Native 不支持带参数的 dynamic import，所以直接分开写
  * See: https://github.com/facebook/metro/issues/52
  */
-import React, { lazy } from 'react'
+import React, { lazy, PropsWithChildren } from 'react'
 
-import { useRoute, RoutePageProp } from '@shared/navigation'
+import { useRoute } from '@shared/navigation'
+
+// import type { DeviceScreenProps } from '@devices/main'
+interface DeviceScreenProps {
+  type: string
+  did: string
+}
+
+import { ScreenProps } from '@app/navigation/types'
 
 const deviceArray = {
-  undefined: lazy(() => import('@packages/ac')),
+  default: lazy(() => import('@packages/ac')),
   ac: lazy(() => import('@packages/ac')),
-  light: lazy(() => import('@packages/light')),
+} as {
+  [key: string]: React.LazyExoticComponent<React.FC<PropsWithChildren<DeviceScreenProps>>>
 }
 
 const Device = () => {
-  const route = useRoute<RoutePageProp<DevicePageProps>>()
-  const deviceType = route.params.deviceType
-  const DeviceModule = deviceArray[`${deviceType}`] ?? deviceArray.undefined
-  return <DeviceModule />
+  const route = useRoute<ScreenProps<'Device'>>()
+  const { deviceType, did } = route.params
+  const DeviceModule = deviceArray[deviceType] ?? deviceArray.default
+  return <DeviceModule type={deviceType} did={did} />
 }
 
 export default Device
