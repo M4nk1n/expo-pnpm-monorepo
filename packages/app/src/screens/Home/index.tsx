@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from 'react'
-import { Observer, useLocalObservable } from 'mobx-react-lite'
-import { Button, Text, TextInput, View } from 'react-native'
+import { Button, ScrollView, Text, TextInput, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
+import { Observer, useLocalObservable } from 'mobx-react-lite'
 
+import { useToast, VStack } from '@shared/components'
 import { useAppState, useDimensions, useKeyboard } from '@shared/hooks'
 import { useI18n } from '@shared/i18n'
 import { useStyles } from '@shared/theme'
 import { useNavigation } from '@shared/navigation'
-import { useToast } from '@shared/components'
 
 import { ScreenList } from '@packages/terms'
 
@@ -72,50 +72,60 @@ const Home = () => {
   }
 
   const styles = useStyles(theme => ({
-    container: {
+    page: {
       flex: 1,
       backgroundColor: theme.Color.BackgroundColor,
+    },
+    container: {
+      flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
+      padding: theme.Space.LargeSpace,
     },
   }))
 
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1 }}>
       <StatusBar style='auto' />
-      <Text>{t('Hello', LanguageScope)} App.tsx to start working on your app!</Text>
-      <Text>==========================================</Text>
-      <Button onPress={() => click('ac')} title='Click to Ac' />
-      <Button onPress={() => click('light')} title='Click to Light' />
-      <Button onPress={() => click('other')} title='Click to Other' />
 
-      <Text>==========================================</Text>
-      <Observer>{() => <Text>localStore: {localStore.counter}</Text>}</Observer>
-      <Observer>{() => <Text>Store: {Store.app.counter}</Text>}</Observer>
-      <Button onPress={() => localStore.increment()} title='Click to increment' />
-      <Button onPress={() => localStore.decrement()} title='Click to decrement' />
+      <ScrollView style={styles.page}>
+        <VStack style={styles.container}>
+          <Text>{t('Hello', LanguageScope)} App.tsx to start working on your app!</Text>
+          <Text>==========================================</Text>
+          <Button onPress={() => click('ac')} title='Click to Ac' />
+          <Button onPress={() => click('light')} title='Click to Light' />
+          <Button onPress={() => click('other')} title='Click to Other' />
 
-      <Text>==========================================</Text>
-      <Button onPress={() => testToast(JSON.stringify(dims))} title='Click to print useDimensions()' />
-      <Button onPress={() => testToast('success')} title='Click to test Toast' />
+          <Text>==========================================</Text>
+          <Observer>{() => <Text>localStore: {localStore.counter}</Text>}</Observer>
+          <Observer>{() => <Text>Store: {Store.app.counter}</Text>}</Observer>
+          <Button onPress={() => localStore.increment()} title='Click to increment' />
+          <Button onPress={() => localStore.decrement()} title='Click to decrement' />
 
-      <Text>===================================</Text>
-      <Button onPress={setOtherLocale} title={`Click to change language`} />
+          <Text>==========================================</Text>
+          <Button onPress={() => testToast(JSON.stringify(dims))} title='Click to print useDimensions()' />
+          <Button onPress={() => testToast('success')} title='Click to test Toast' />
 
-      <Text>===================================</Text>
-      <Button onPress={() => checkTerms(ScreenList.Agreement)} title={`Click to Term > Agreement`} />
-      <Button onPress={() => checkTerms(ScreenList.Privacy)} title={`Click to Term > Privacy`} />
+          <Text>===================================</Text>
+          <Button onPress={setOtherLocale} title={`Click to change language`} />
 
-      <Text>==========================================</Text>
-      <Button onPress={dismissKeyboard} title='Click to dismiss keyboard' />
-      <TextInput
-        editable
-        multiline
-        maxLength={40}
-        onChangeText={text => onChangeText(text)}
-        value={value}
-        style={{ height: 40, width: 300, margin: 12, padding: 10, borderWidth: 1 }}
-      />
+          <Text>===================================</Text>
+          <Button onPress={() => checkTerms(ScreenList.Agreement)} title={`Click to Term > Agreement`} />
+          <Button onPress={() => checkTerms(ScreenList.Privacy)} title={`Click to Term > Privacy`} />
+
+          <Text>==========================================</Text>
+
+          <Button onPress={dismissKeyboard} title='Click to dismiss keyboard' />
+          <TextInput
+            editable
+            multiline
+            maxLength={40}
+            onChangeText={text => onChangeText(text)}
+            value={value}
+            style={{ height: 40, width: 300, margin: 12, padding: 10, borderWidth: 1 }}
+          />
+        </VStack>
+      </ScrollView>
     </View>
   )
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import { ScrollView, Text } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 
-import { useDimensions } from '@shared/hooks'
 import { useStyles, useTheme } from '@shared/theme'
 import { useI18n } from '@shared/i18n'
 import { VStack } from '@shared/components'
@@ -12,12 +11,10 @@ import { LanguageScope } from '../locale'
 const Privacy = () => {
   const { t } = useI18n()
 
-  const { safeAreaInsets } = useDimensions()
   const styles = useStyles(theme => ({
     page: {
       backgroundColor: theme.Color.BackgroundColor,
       padding: theme.Space.LargeSpace,
-      marginTop: safeAreaInsets.top,
     },
     container: {
       flex: 1,
