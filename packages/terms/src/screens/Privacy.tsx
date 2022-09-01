@@ -1,8 +1,7 @@
 import React from 'react'
 import { ScrollView, Text } from 'react-native'
-import { StatusBar } from 'expo-status-bar'
 
-import { useStyles, useTheme } from '@shared/theme'
+import { useStyles } from '@shared/theme'
 import { useI18n } from '@shared/i18n'
 import { VStack } from '@shared/components'
 
@@ -43,12 +42,8 @@ const Privacy = () => {
     },
   }))
 
-  const { currentColorScheme } = useTheme()
-
   return (
     <ScrollView style={styles.page}>
-      <StatusBar style={currentColorScheme} />
-
       <VStack style={styles.container}>
         <Text style={styles.title}>{t('PrivacyStatement', LanguageScope)}</Text>
         <Text style={styles.date}>更新日期：2000年1月1日</Text>

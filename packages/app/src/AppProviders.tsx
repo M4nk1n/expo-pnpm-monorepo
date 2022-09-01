@@ -4,7 +4,7 @@ import { DimensionsProvider } from '@shared/hooks'
 import { CombineProviders } from '@shared/utils'
 import { I18nProvider } from '@shared/i18n'
 import { ThemeProvider } from '@shared/theme'
-import { KeyboardAvoidingViewProvider, SuspenseProvider, ToastProvider } from '@shared/components'
+import { KeyboardAvoidingViewProvider, StatusBarProvider, SuspenseProvider, ToastProvider } from '@shared/components'
 import { AuthenticationProvider } from '@shared/authentication'
 
 import AppProvider from './AppProvider'
@@ -25,6 +25,7 @@ const AppProviders: React.FC<PropsWithChildren> = ({ children }) =>
       KeyboardAvoidingViewProvider,
       ToastProvider,
       AppProvider, // uses: GizSDKProvider
+      StatusBarProvider,
       NavigatorProvider,
     ],
     children

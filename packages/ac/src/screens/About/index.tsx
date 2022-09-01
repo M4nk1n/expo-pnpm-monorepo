@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react'
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
-import { StatusBar } from 'expo-status-bar'
 
 import { useAppState, useDimensions } from '@shared/hooks'
 import { useToast } from '@shared/components'
@@ -36,7 +35,6 @@ const About = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar style='auto' />
       <Text>I am device(ac) - about page!</Text>
       <Text>==========================================</Text>
       <Button onPress={() => testToast(JSON.stringify(dims))} title='Click to print useDimensions()' />

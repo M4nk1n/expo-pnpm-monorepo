@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react'
 import { Button, ScrollView, Text, TextInput, View } from 'react-native'
-import { StatusBar } from 'expo-status-bar'
 import { Observer, useLocalObservable } from 'mobx-react-lite'
 
 import { useToast, VStack } from '@shared/components'
@@ -86,8 +85,6 @@ const Home = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <StatusBar style='auto' />
-
       <ScrollView style={styles.page}>
         <VStack style={styles.container}>
           <Text>{t('Hello', LanguageScope)} App.tsx to start working on your app!</Text>
