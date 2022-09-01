@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Dict, TranslateOptions } from 'i18n-js/typings/typing'
+import type { DateTime, Dict, StrftimeOptions, TranslateOptions } from 'i18n-js/typings/typing'
 
 import { I18nContext } from './context'
 
@@ -112,11 +112,13 @@ export const useI18n = () => {
     return i18n.current.t(tag, options)
   }
 
-  const l = i18n.current.l
+  const l = (type: string, value: string | number | Date | null | undefined, options?: Dict) =>
+    i18n.current.l(type, value, options)
 
-  const toTime = i18n.current.toTime
+  const toTime = (type: string, input: DateTime) => i18n.current.toTime(type, input)
 
-  const strftime = i18n.current.strftime
+  const strftime = (date: Date, format: string, options?: Partial<StrftimeOptions>) =>
+    i18n.current.strftime(date, format, options)
 
   return { i18n: i18n.current, setDefaultLocale, setLocale, store, checkStore, t, l, toTime, strftime }
 }
