@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { NavigationContainer, Stack } from '@shared/navigation'
 
-import Terms from '@packages/terms'
+const Terms = lazy(() => import('@packages/terms'))
 
 import Home from '@app/screens/Home'
 import Device from '@app/screens/Device'
