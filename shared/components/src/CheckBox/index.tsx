@@ -29,7 +29,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({ size, checked, onPress, disabled = 
   }, [size])
 
   return (
-    <Pressable onPress={onPress} disabled={disabled}>
+    <Pressable onPress={onPress} disabled={disabled || !onPress}>
       <View style={styles.view}>
         <Image source={checked ? iconChecked : iconNormal} style={styles.icon} />
       </View>
