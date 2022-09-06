@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect } from 'react'
+import React, { PropsWithChildren, useEffect, useMemo } from 'react'
 
 import { isSecureStoreAvailableAsync, useAsyncStorage, useSecureStore } from '@shared/storage'
 
@@ -10,7 +10,7 @@ export const AuthenticationProvider: React.FC<PropsWithChildren> = ({ children }
   const [state, dispatch] = React.useReducer(
     (_: State, action: Action) => {
       switch (action.type) {
-        case 'restore_token':
+        case 'restore':
         case 'sign_in':
           return { state: action.type, user: action.payload }
         default:
@@ -23,14 +23,15 @@ export const AuthenticationProvider: React.FC<PropsWithChildren> = ({ children }
   const userSecureStore = useSecureStore(Keys.SignedInUser)
   const userAsyncStore = useAsyncStorage(Keys.SignedInUser)
 
-  const auth = React.useMemo(
+  const auth = useMemo(
     () => ({
-      store: async (user: UserType) => dispatch({ type: 'restore_token', payload: user }),
+      store: async (user: UserType) => dispatch({ type: 'restore', payload: user }),
       signIn: async (user: UserType) => {
         try {
+          dispatch({ type: 'sign_in', payload: user })
           isSecureStoreAvailableAsync().then(available => {
             const userStore = available ? userSecureStore : userAsyncStore
-            userStore.set(JSON.stringify(user)).then(() => dispatch({ type: 'sign_in', payload: user }))
+            userStore.set(JSON.stringify(user))
           })
         } catch (e) {
           console.error('store token error', e)
@@ -38,16 +39,17 @@ export const AuthenticationProvider: React.FC<PropsWithChildren> = ({ children }
       },
       signOut: () => {
         try {
+          dispatch({ type: 'sign_out' })
           isSecureStoreAvailableAsync().then(available => {
             const userStore = available ? userSecureStore : userAsyncStore
-            userStore.remove().then(() => dispatch({ type: 'sign_out' }))
+            userStore.remove()
           })
         } catch (e) {
           console.error('remove token store error', e)
         }
       },
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
 

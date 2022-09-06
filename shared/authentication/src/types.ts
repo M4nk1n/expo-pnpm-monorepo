@@ -1,16 +1,13 @@
 export type UserType = {
+  uid: string
   token: string
-  gizUser: {
-    uid: string
-    token: string
-  }
 }
 
-export type ActionType = 'inited' | 'restore_token' | 'sign_in' | 'sign_out'
+export type ActionType = 'inited' | 'restore' | 'sign_in' | 'sign_out'
 
 export type Action =
   | { type: 'inited' }
-  | { type: 'restore_token'; payload: UserType }
+  | { type: 'restore'; payload: UserType }
   | { type: 'sign_in'; payload: UserType }
   | { type: 'sign_out' }
 
