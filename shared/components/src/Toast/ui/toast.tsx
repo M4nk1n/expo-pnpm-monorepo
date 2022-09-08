@@ -17,6 +17,7 @@ const { width } = Dimensions.get('window')
 export const TOAST_DURATION_MAP: Record<ToastDuration, number> = {
   short: 2500,
   long: 5000,
+  always: 86400000,
 }
 
 export const Toast: React.FC<ToastProps> = ({

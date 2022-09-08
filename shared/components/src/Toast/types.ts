@@ -1,7 +1,7 @@
 import { StyleProp, TextStyle, ViewStyle } from 'react-native'
 
 export type ToastType = 'normal' | 'success' | 'danger' | 'warning' | string
-export type ToastDuration = 'long' | 'short'
+export type ToastDuration = 'always' | 'long' | 'short'
 export type ToastPlacement = 'top' | 'bottom' | 'center'
 export type ToastAnimationType = 'slide-in' | 'zoom-in'
 
