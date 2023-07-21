@@ -3,8 +3,8 @@ import { NavigationContainer, Stack } from '@shared/navigation'
 
 const Terms = lazy(() => import('@packages/terms'))
 
-import Home from '@app/screens/Home'
-import Device from '@app/screens/Device'
+import Home from '../screens/Home'
+import Device from '../screens/Device'
 
 const NavigatorProvider = () => (
   <NavigationContainer>

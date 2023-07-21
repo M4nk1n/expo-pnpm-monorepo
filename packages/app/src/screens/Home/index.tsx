@@ -10,16 +10,17 @@ import { useNavigation } from '@shared/navigation'
 
 import { ScreenList } from '@packages/terms'
 
-import { LanguageScope } from '@app/locale'
-import Store from '@app/store'
-import { NavigationProps } from '@app/navigation/types'
+import { useLocalI18n } from '../../locale'
+import Store from '../../store'
+import { NavigationProps } from '../../navigation/types'
 
 const Home = () => {
   const navigation = useNavigation<NavigationProps<'Home'>>()
   const localStore = useLocalObservable(() => Store.app)
   const toast = useToast()
   const dims = useDimensions()
-  const { i18n, setLocale, t } = useI18n()
+  const { i18n, setLocale } = useI18n()
+  const { t } = useLocalI18n()
 
   const [loc, setLoc] = useState(i18n.defaultLocale)
   const [value, onChangeText] = useState('Multiline Placeholder')
@@ -73,24 +74,23 @@ const Home = () => {
   const styles = useStyles(theme => ({
     page: {
       flex: 1,
-      backgroundColor: theme.Color.BackgroundColor,
+      backgroundColor: theme.Color.BackgroundColor
     },
     container: {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      padding: theme.Space.LargeSpace,
-    },
+      padding: theme.Space.LargeSpace
+    }
   }))
 
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={styles.page}>
         <VStack style={styles.container}>
-          <Text>{t('Hello', LanguageScope)} App.tsx to start working on your app!</Text>
+          <Text>{t('Hello')} App.tsx to start working on your app!</Text>
           <Text>==========================================</Text>
           <Button onPress={() => click('ac')} title='Click to Ac' />
-          <Button onPress={() => click('light')} title='Click to Light' />
           <Button onPress={() => click('other')} title='Click to Other' />
 
           <Text>==========================================</Text>

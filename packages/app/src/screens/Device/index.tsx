@@ -1,11 +1,11 @@
 /**
- * For: Nexh.js
+ * For: Expo / React Native
  * React Native 不支持带参数的 dynamic import，所以直接分开写
+ * See: https://github.com/facebook/metro/issues/52
  */
-import React, { PropsWithChildren, useState } from 'react'
+import React, { lazy, PropsWithChildren } from 'react'
 
-import { useNavigation, useRoute } from '@shared/navigation'
-import { useEffectOnce } from '@shared/hooks'
+import { useRoute } from '@shared/navigation'
 
 // import type { DeviceScreenProps } from '@devices/main'
 interface DeviceScreenProps {
@@ -13,30 +13,20 @@ interface DeviceScreenProps {
   did: string
 }
 
-import { ScreenProps } from '@app/navigation/types'
+import { ScreenProps } from '../../navigation/types'
+
+const deviceArray = {
+  default: lazy(() => import('@packages/ac')),
+  ac: lazy(() => import('@packages/ac'))
+} as {
+  [key: string]: React.LazyExoticComponent<React.FC<PropsWithChildren<DeviceScreenProps>>>
+}
 
 const Device = () => {
-  const navigation = useNavigation()
   const route = useRoute<ScreenProps<'Device'>>()
   const { deviceType, did } = route.params
-  const [deviceModule, setDeviceModule] = useState<React.FC<PropsWithChildren<DeviceScreenProps>>>()
-
-  useEffectOnce(() => {
-    if (!deviceType || !did) {
-      console.log(`deviceType/did is null`)
-      navigation.goBack()
-      return
-    }
-
-    import('@devices/' + deviceType)
-      .then(({ default: DeviceModule }) => setDeviceModule(() => <DeviceModule type={deviceType} did={did} />))
-      .catch(err => {
-        console.log(`device page error: ${err}`)
-        navigation.goBack()
-      })
-  })
-
-  return <>{deviceModule}</>
+  const DeviceModule = deviceArray[deviceType] ?? deviceArray.default
+  return <DeviceModule type={deviceType} did={did} />
 }
 
 export default Device

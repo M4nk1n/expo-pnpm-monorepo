@@ -1,8 +1,9 @@
 import type { NavigationProp, RouteProp, StackScreenProps } from '@shared/navigation'
 
-type StackParamList = {
-  DeviceHome: undefined
-  DeviceAbout: undefined
+import { ScreenList } from '../constants'
+
+export type StackParamList = {
+  [key in ScreenList]: undefined
 }
 
 export type StackProps<T extends keyof StackParamList> = StackScreenProps<StackParamList, T>

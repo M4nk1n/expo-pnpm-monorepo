@@ -2,26 +2,27 @@ import React, { useEffect } from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
 import { useNavigation } from '@shared/navigation'
 
-import { NavigationProps } from '../../navigation/types'
+import type { NavigationProps } from '../../navigation/types'
+import { ScreenList } from '../../constants'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 })
 
 const Home = (): JSX.Element => {
-  const navigation = useNavigation<NavigationProps<'DeviceHome'>>()
+  const navigation = useNavigation<NavigationProps<ScreenList.Home>>()
 
   useEffect(() => {
     console.log('device/ac init.')
   }, [])
 
   const goAbout = () => {
-    navigation.navigate('DeviceAbout')
+    navigation.navigate(ScreenList.About)
   }
 
   return (

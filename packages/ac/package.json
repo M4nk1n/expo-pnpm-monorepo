@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "示例设备 - 空调",
   "private": true,
+  "type": "module",
   "main": "src",
   "scripts": {
     "typecheck": "tsc"
@@ -19,8 +20,6 @@
     "@shared/navigation": "workspace:*",
     "@shared/components": "workspace:*",
     "expo": ">=45.0.0",
-    "mobx": "^6.6.0",
-    "mobx-react-lite": "^3.4.0",
     "react": ">=17",
     "react-native": ">=0.68.2"
   }

@@ -11,13 +11,15 @@
     "build"
   ],
   "scripts": {
-    "build:tsc": "rm -rf build tsconfig.tsbuildinfo && tsc --build"
+    "prepare": "pnpm clean && pnpm build",
+    "build": "tsc --build",
+    "clean": "rimraf build ./tsconfig.tsbuildinfo"
   },
   "dependencies": {
-    "i18n-js": "^4.0.2"
+    "i18n-js": "^4.3.0"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.182"
+    "@types/lodash": "^4.14.195"
   },
   "peerDependencies": {
     "react": ">=17"

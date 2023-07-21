@@ -1,7 +1,8 @@
 {
   "extends": ["@commitlint/config-conventional"],
   "rules": {
-    "type-enum": [2, "always", ["feat", "fix", "docs", "style", "refactor", "perf", "test", "ci", "chore", "revert"]]
+    "type-enum": [2, "always", ["feat", "fix", "docs", "style", "refactor", "perf", "test", "ci", "chore", "revert"]],
+    "subject-case": [2, "never", ["start-case", "upper-case"]]
   },
   "description": {
     "description": "这部分用作记录，无实际用途",

@@ -11,9 +11,12 @@
     "build"
   ],
   "scripts": {
-    "build:tsc": "rm -rf build tsconfig.tsbuildinfo && tsc --build"
+    "prepare": "pnpm clean && pnpm build",
+    "build": "tsc --build",
+    "clean": "rimraf build ./tsconfig.tsbuildinfo"
   },
   "peerDependencies": {
-    "react": ">=17"
+    "react": ">=17",
+    "react-native": ">=0.68.2"
   }
 }

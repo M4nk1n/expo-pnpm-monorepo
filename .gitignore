@@ -11,6 +11,8 @@ test-results
 .pnpm-store
 tsconfig.tsbuildinfo
 
+build/
+
 .env
 *.local
 *.cache

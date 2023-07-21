@@ -41,3 +41,17 @@
 [Expo fyi](https://github.com/expo/fyi): Little bits of information that you may
 find useful when interacting with Expo tools and service. Append the markdown
 filename to [Expo fyi](https://github.com/expo/fyi) to get a quick link to it.
+
+---
+
+## 项目参考资料
+
+[Use Next.js with Expo for Web - Expo Documentation](https://docs.expo.dev/guides/using-nextjs/)
+
+[examples/with-nextjs at master · expo/examples](https://github.com/expo/examples/tree/master/with-nextjs)
+
+[react-native-web/packages/react-native-web-examples at master · necolas/react-native-web](https://github.com/necolas/react-native-web/tree/master/packages/react-native-web-examples)
+
+[Navigation prop reference | React Navigation](https://reactnavigation.org/docs/navigation-prop/#getparent)
+
+[Out-of-Tree Platforms · React Native](https://reactnative.dev/docs/out-of-tree-platforms)

@@ -1,19 +1,21 @@
 {
-  "cli": {
-    "version": ">= 0.54.1"
-  },
   "build": {
     "base": {
       "credentialsSource": "local",
+      "cache": {
+        "disabled": true
+      },
       "android": {
         "buildType": "apk",
         "image": "latest",
+        "resourceClass": "large",
         "env": {
           "PLATFORM": "android"
         }
       },
       "ios": {
         "image": "latest",
+        "resourceClass": "large",
         "env": {
           "PLATFORM": "ios"
         }
@@ -35,15 +37,19 @@
     },
     "preview": {
       "extends": "base",
-      "distribution": "internal",
       "env": {
-        "ENVIRONMENT": "preview"
+        "ENVIRONMENT": "production",
+        "productEnv": "dev"
+      },
+      "android": {
+        "distribution": "internal"
       }
     },
     "production": {
       "extends": "base",
       "env": {
-        "ENVIRONMENT": "production"
+        "ENVIRONMENT": "production",
+        "productEnv": "prod"
       },
       "android": {
         "distribution": "internal"

@@ -2,12 +2,10 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "composite": true,
-    "declaration": true,
     "outDir": "dist",
-    "rootDir": "src",
     "useDefineForClassFields": true
   },
-  "include": ["typings/**/*", "src/**/*"],
+  "include": ["typings/**/*", "src/**/*", "src/**/*.json", "package.json"],
   "exclude": ["node_modules", "dist"],
   "compileOnSave": false
 }

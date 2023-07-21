@@ -6,10 +6,10 @@ import { useI18n } from '@shared/i18n'
 import { useTheme } from '@shared/theme'
 import { PureWrapper } from '@shared/components'
 
-import { themes } from '@app/themes'
-import { LanguageScope } from '@app/locale'
-import en from '@app/locale/languages/enUS.json'
-import cn from '@app/locale/languages/zhCN.json'
+import { themes } from './themes'
+import { LanguageScope } from './locale'
+import en from './locale/languages/enUS.json'
+import cn from './locale/languages/zhCN.json'
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync().catch(err => {

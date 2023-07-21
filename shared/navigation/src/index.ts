@@ -6,8 +6,11 @@ export * from '@react-navigation/native'
 export * from '@react-navigation/stack'
 export * from '@react-navigation/drawer'
 
-const NavigationRef = createNavigationContainerRef()
-const Stack = createStackNavigator()
-const Drawer = createDrawerNavigator()
+// Explicitly type the variable/function
+// It is a typescript bug when using pnpm.
+// More detailed: https://github.com/microsoft/TypeScript/issues/47663#issuecomment-1519138189
+const NavigationRef: ReturnType<typeof createNavigationContainerRef> = createNavigationContainerRef()
+const Stack: ReturnType<typeof createStackNavigator> = createStackNavigator()
+const Drawer: ReturnType<typeof createDrawerNavigator> = createDrawerNavigator()
 
 export { NavigationRef, Stack, Drawer }
