@@ -36,6 +36,12 @@
 
 ---
 
+## Bug Note
+
+[React.lazy is not working in Expo SDK 49](https://github.com/expo/expo/issues/23570)
+
+---
+
 ## Links
 
 [Expo fyi](https://github.com/expo/fyi): Little bits of information that you may
