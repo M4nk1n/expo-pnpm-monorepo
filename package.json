@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "Expo Workspace with pnpm",
-  "packageManager": "pnpm@8.6.9",
+  "packageManager": "pnpm@8.7.4",
   "engines": {
     "node": ">=16.9.0",
     "pnpm": ">=7.4.0"
