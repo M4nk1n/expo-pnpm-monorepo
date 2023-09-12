@@ -6,9 +6,7 @@
     "baseUrl": "src",
     "paths": {
       "@app/*": ["*"]
-    },
-    // https://mobx.js.org/installation.html#use-spec-compliant-transpilation-for-class-properties
-    "useDefineForClassFields": true
+    }
   },
   "include": ["src/**/*", "src/**/*.json", "package.json"],
   "exclude": ["node_modules", "dist"],

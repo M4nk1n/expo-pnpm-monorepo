@@ -263,12 +263,6 @@ importers:
       expo-status-bar:
         specifier: '*'
         version: 1.6.0
-      mobx:
-        specifier: ^6.9.1
-        version: 6.10.2
-      mobx-react-lite:
-        specifier: ^4.0.3
-        version: 4.0.4(mobx@6.10.2)(react-native@0.72.4)(react@18.2.0)
       react:
         specifier: '>=17'
         version: 18.2.0
@@ -7454,29 +7448,6 @@ packages:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
-
-  /mobx-react-lite@4.0.4(mobx@6.10.2)(react-native@0.72.4)(react@18.2.0):
-    resolution: {integrity: sha512-68uNYvQC/5Dazs3sIBv+bnpzRwcWde8y4ujHiLizhq8yeQtJ2tlNUGSh4r40gyE5M0utACIofBDsAj2hplcovQ==}
-    peerDependencies:
-      mobx: ^6.9.0
-      react: ^16.8.0 || ^17 || ^18
-      react-dom: '*'
-      react-native: '*'
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
-    dependencies:
-      mobx: 6.10.2
-      react: 18.2.0
-      react-native: 0.72.4(@babel/core@7.22.17)(@babel/preset-env@7.22.15)(react@18.2.0)
-      use-sync-external-store: 1.2.0(react@18.2.0)
-    dev: false
-
-  /mobx@6.10.2:
-    resolution: {integrity: sha512-B1UGC3ieK3boCjnMEcZSwxqRDMdzX65H/8zOHbuTY8ZhvrIjTUoLRR2TP2bPqIgYRfb3+dUigu8yMZufNjn0LQ==}
-    dev: false
 
   /mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}

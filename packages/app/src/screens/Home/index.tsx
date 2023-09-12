@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react'
 import { Button, ScrollView, Text, TextInput, View } from 'react-native'
-import { Observer, useLocalObservable } from 'mobx-react-lite'
 
 import { useToast, VStack } from '@shared/components'
 import { useAppState, useDimensions, useKeyboard } from '@shared/hooks'
@@ -11,12 +10,10 @@ import { useNavigation } from '@shared/navigation'
 import { ScreenList } from '@packages/terms'
 
 import { useLocalI18n } from '../../locale'
-import Store from '../../store'
 import { NavigationProps } from '../../navigation/types'
 
 const Home = () => {
   const navigation = useNavigation<NavigationProps<'Home'>>()
-  const localStore = useLocalObservable(() => Store.app)
   const toast = useToast()
   const dims = useDimensions()
   const { i18n, setLocale } = useI18n()
@@ -92,12 +89,6 @@ const Home = () => {
           <Text>==========================================</Text>
           <Button onPress={() => click('ac')} title='Click to Ac' />
           <Button onPress={() => click('other')} title='Click to Other' />
-
-          <Text>==========================================</Text>
-          <Observer>{() => <Text>localStore: {localStore.counter}</Text>}</Observer>
-          <Observer>{() => <Text>Store: {Store.app.counter}</Text>}</Observer>
-          <Button onPress={() => localStore.increment()} title='Click to increment' />
-          <Button onPress={() => localStore.decrement()} title='Click to decrement' />
 
           <Text>==========================================</Text>
           <Button onPress={() => testToast(JSON.stringify(dims))} title='Click to print useDimensions()' />

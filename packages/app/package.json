@@ -16,9 +16,7 @@
     "@shared/i18n": "workspace:*",
     "@shared/navigation": "workspace:*",
     "@shared/theme": "workspace:*",
-    "@shared/utils": "workspace:*",
-    "mobx": "^6.9.1",
-    "mobx-react-lite": "^4.0.3"
+    "@shared/utils": "workspace:*"
   },
   "peerDependencies": {
     "expo": ">=45.0.0",

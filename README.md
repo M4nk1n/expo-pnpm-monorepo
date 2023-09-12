@@ -6,13 +6,13 @@
 
 - React Native/Expo
 - React Hooks
-- MobX
+- React Context
 - TypeScript
 
 ## 支持特性
 
 - 💡 使用 pnpm 管理依赖
-- 🏠 基于 Expo 平台，提供 React + MobX 状态管理的解决方案
+- 🏠 基于 Expo 平台
 - 📦 支持 React Hook
 - 🥣 完全使用 TypeScript 开发
 - 👮 editorConfig + eslint + prettier + markdownlint + commitlint + stylelint 实现的无死角代码规范体系
