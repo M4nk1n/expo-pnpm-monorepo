@@ -1,0 +1,84 @@
+{
+  "folders": [
+    {
+      "name": "🌳 root",
+      "path": "."
+    },
+    {
+      "name": "🚀 expo-app",
+      "path": "apps/expo"
+    },
+    {
+      "name": "🚀 nextjs-app",
+      "path": "apps/next"
+    },
+    {
+      "name": "🍂 app-entry",
+      "path": "packages/app"
+    },
+    {
+      "name": "🍂 app-terms",
+      "path": "packages/terms"
+    },
+    {
+      "name": "📦 libs-authentication",
+      "path": "shared/authentication"
+    },
+    {
+      "name": "📦 libs-components",
+      "path": "shared/components"
+    },
+    {
+      "name": "📦 libs-hooks",
+      "path": "shared/hooks"
+    },
+    {
+      "name": "📦 libs-i18n",
+      "path": "shared/i18n"
+    },
+    {
+      "name": "📦 libs-navigation",
+      "path": "shared/navigation"
+    },
+    {
+      "name": "📦 libs-storage",
+      "path": "shared/storage"
+    },
+    {
+      "name": "📦 libs-theme",
+      "path": "shared/theme"
+    },
+    {
+      "name": "📦 libs-utils",
+      "path": "shared/utils"
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      "folke.vscode-monorepo-workspace",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode"
+    ]
+  },
+  "settings": {
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    // Disable vscode formatting for js,jsx,ts,tsx files
+    // to allow dbaeumer.vscode-eslint to format them
+    "[javascript]": {
+      "editor.formatOnSave": false
+    },
+    "eslint.alwaysShowStatus": true,
+    // https://github.com/Microsoft/vscode-eslint#mono-repository-setup
+    "eslint.workingDirectories": [
+      { "pattern": "./apps/*/" },
+      { "pattern": "./packages/*/" },
+      { "pattern": "./shared/*/" }
+    ]
+  }
+}
