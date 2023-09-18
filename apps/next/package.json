@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rimraf --glob '{.next,build,dist}'"
   },
   "dependencies": {
     "@packages/app": "workspace:*",

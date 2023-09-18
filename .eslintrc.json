@@ -82,6 +82,6 @@
   "parserOptions": {
     "ecmaFeatures": { "jsx": true },
     "useJSXTextNode": true,
-    "project": ["tsconfig.json", "apps/**/tsconfig.json", "packages/**/tsconfig.json", "devices/**/tsconfig.json"]
+    "project": ["tsconfig.json", "apps/**/tsconfig.json", "packages/**/tsconfig.json", "shared/**/tsconfig.json"]
   }
 }

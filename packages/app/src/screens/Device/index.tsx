@@ -7,7 +7,6 @@ import React, { lazy, PropsWithChildren } from 'react'
 
 import { useRoute } from '@shared/navigation'
 
-// import type { DeviceScreenProps } from '@devices/main'
 interface DeviceScreenProps {
   type: string
   did: string

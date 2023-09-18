@@ -13,7 +13,7 @@
   "scripts": {
     "prepare": "pnpm clean && pnpm build",
     "build": "tsc --build",
-    "clean": "rimraf build ./tsconfig.tsbuildinfo"
+    "clean": "rimraf build tsconfig.tsbuildinfo"
   },
   "peerDependencies": {
     "react": ">=17"

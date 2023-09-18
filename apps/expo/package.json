@@ -14,7 +14,8 @@
     "eas:local:android": "export EAS_LOCAL_BUILD_SKIP_CLEANUP=1 && export NODE_OPTIONS=--max_old_space_size=4096 && pnpm dlx eas-cli build --local --profile production --platform android",
     "eas:local:ios": "export EAS_LOCAL_BUILD_SKIP_CLEANUP=1 && export NODE_OPTIONS=--max_old_space_size=4096 && pnpm dlx eas-cli build --local --profile production --platform ios",
     "eas-build-pre-install": "npm list -g && echo \"pnpm version: $(pnpm -v)\" && if test \"$(echo \"$(pnpm -v) 7.4.0\" | tr \" \" \"\\n\" | sort -V | head -n 1)\" != \"7.4.0\"; then\n  echo 'Start: update pnpm to latest.' && npm install -g pnpm && npm list -g \nfi",
-    "inject-adnroid-sign": "sed -i'.bak' -e '$s/$/\\n\\napply from: \"..\\/..\\/android-sign.gradle\"/' android/app/build.gradle"
+    "inject-adnroid-sign": "sed -i'.bak' -e '$s/$/\\n\\napply from: \"..\\/..\\/android-sign.gradle\"/' android/app/build.gradle",
+    "clean": "rimraf --glob '{.expo,build,dist}'"
   },
   "dependencies": {
     "@packages/app": "workspace:*",
