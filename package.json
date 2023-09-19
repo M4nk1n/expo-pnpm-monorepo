@@ -17,7 +17,7 @@
     "clean:shared": "pnpm --filter '@shared/*' -r run clean",
     "clean:pkgs": "pnpm --filter '@packages/*' -r run clean",
     "clean:apps": "pnpm --filter '@apps/*' -r run clean",
-    "clean:build": "rimraf --glob '**/!(node_modules)/{.next,.expo,build,dist}'",
+    "clean:build": "rimraf --glob '**/!(node_modules)/*/{.next,.expo,build,dist}'",
     "nuke:node_modules": "rimraf --glob '**/node_modules'",
     "clean:all": "pnpm -r run clean && pnpm nuke:node_modules",
     "format": "pretty-quick --staged && lint-staged",
